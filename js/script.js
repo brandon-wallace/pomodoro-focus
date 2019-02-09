@@ -1,8 +1,10 @@
 "use strict";
 
 
+let running = false;
 const beep = new Audio('audio/404151_select-01.mp3');
 const timesup = new Audio('audio/216090_bad-beep-incorrect.mp3');
+const startBtn = document.querySelector(".start-btn");
 
 
 const padZero = (number) => {
@@ -14,12 +16,16 @@ const padZero = (number) => {
 
 
 const start = () => {
+    running = true;
     let minutes = 25;
     let seconds = 60;
     let digits = document.querySelector(".clock-digits");
     beep.play();
 
     let timerId = setInterval(() => {
+        if (running) {
+            startBtn.disabled = true;
+        }
         if (seconds === 60) {
             minutes -= 1;
         }
