@@ -1,6 +1,10 @@
 "use strict";
 
 
+const beep = new Audio('audio/404151_select-01.mp3');
+const timesup = new Audio('audio/216090_bad-beep-incorrect.mp3');
+
+
 const padZero = (number) => {
     if (number < 10) {
         return `0${number}`;
@@ -13,6 +17,7 @@ const start = () => {
     let minutes = 25;
     let seconds = 60;
     let digits = document.querySelector(".clock-digits");
+    beep.play();
 
     let timerId = setInterval(() => {
         if (seconds === 60) {
@@ -23,6 +28,7 @@ const start = () => {
         if (seconds === 0) {
             if (seconds === 0 && minutes === 0) {
                 clearInterval(timerId);
+                timesup.play();
                 digits.innerHTML = `25:00`;
             } else {
                 seconds = 60;
