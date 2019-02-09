@@ -25,28 +25,32 @@ const start = () => {
     let timerId = setInterval(() => {
         if (running) {
             startBtn.disabled = true;
-        }
-        if (seconds === 60) {
-            minutes -= 1;
-        }
-        seconds -= 1;
-        digits.innerHTML = `${padZero(minutes)}:${padZero(seconds)}`;
-        if (seconds === 0) {
-            if (seconds === 0 && minutes === 0) {
-                clearInterval(timerId);
-                timesup.play();
-                digits.innerHTML = `25:00`;
-            } else {
-                seconds = 60;
+            if (seconds === 60) {
+                minutes -= 1;
             }
-            minutes -= 1;
+            seconds -= 1;
+            digits.innerHTML = `${padZero(minutes)}:${padZero(seconds)}`;
+            if (seconds === 0) {
+                if (seconds === 0 && minutes === 0) {
+                    clearInterval(timerId);
+                    timesup.play();
+                    digits.innerHTML = `25:00`;
+                } else {
+                    seconds = 60;
+                }
+                minutes -= 1;
+            }
+        } else {
+            clearInterval(timerId);
         }
     }, 1000)
 }
 
 
 const reset = () => {
+    running = false;
     document.querySelector(".clock-digits").innerHTML = `25:00`;
+    startBtn.disabled = false;
 }
 
 
