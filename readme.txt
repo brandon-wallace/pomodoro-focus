@@ -1,6 +1,6 @@
 Pomodoro Focus
 
-A simple Pomodoro timer.
+A simple pomodoro timer.
 
 Features:
 

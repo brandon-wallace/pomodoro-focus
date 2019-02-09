@@ -1,6 +1,6 @@
 # Pomodoro Focus
 
-# A simple Pomodoro timer.
+# A simple pomodoro timer.
 
 # Features:
 
@@ -10,7 +10,7 @@
 * CSS3
 * HTML5
 
-# &#127813; &#127813; &#127813; &#127813; &#127813; &#127813; &#127813; 	
+# &#127813; &#127813; &#127813; &#127813; &#127813; &#127813; &#127813; &#127813;	
 
 ![screenshot1](images/screenshot1.jpg)
 ![screenshot2](images/screenshot2.jpg)
