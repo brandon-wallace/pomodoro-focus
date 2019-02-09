@@ -2,6 +2,7 @@
 
 
 let running = false;
+let titleText = document.querySelector("title");
 const beep = new Audio('audio/404151_select-01.mp3');
 const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 const startBtn = document.querySelector(".start-btn");
@@ -30,6 +31,7 @@ const start = () => {
             }
             seconds -= 1;
             digits.innerHTML = `${padZero(minutes)}:${padZero(seconds)}`;
+            titleText.innerHTML = `${padZero(minutes)}:${padZero(seconds)} pomodoro focus`;
             if (seconds === 0) {
                 if (seconds === 0 && minutes === 0) {
                     clearInterval(timerId);
@@ -50,6 +52,7 @@ const start = () => {
 const reset = () => {
     running = false;
     document.querySelector(".clock-digits").innerHTML = `25:00`;
+    titleText.innerHTML = `pomodoro focus`
     startBtn.disabled = false;
 }
 
