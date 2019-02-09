@@ -3,7 +3,7 @@
 
 let running = false;
 const beep = new Audio('audio/404151_select-01.mp3');
-const timesup = new Audio('audio/216090_bad-beep-incorrect.mp3');
+const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 const startBtn = document.querySelector(".start-btn");
 
 
@@ -33,7 +33,7 @@ const start = () => {
             if (seconds === 0) {
                 if (seconds === 0 && minutes === 0) {
                     clearInterval(timerId);
-                    timesup.play();
+                    timesUpSound.play();
                     digits.innerHTML = `25:00`;
                 } else {
                     seconds = 60;
