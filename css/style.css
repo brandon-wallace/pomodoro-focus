@@ -21,7 +21,6 @@ body {
 }
 
 article {
-  /* padding: 1rem; */
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
@@ -57,17 +56,25 @@ article {
 }
 
 .controls {
-  width: 50%;
   height: 35vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.controls-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
   margin: 0 auto;
-  align-items: center;
+  max-height: 185px;
   border-radius: 8px;
+  align-items: center;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.controls .btn {
+.controls-container .btn {
   width: 90%;
   height: 50px;
   color: #1E90FF;
