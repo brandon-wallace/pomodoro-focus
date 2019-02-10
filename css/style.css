@@ -41,7 +41,8 @@ article {
 
 .clock-digits {
   margin: 1rem 1rem 0 0;
-  color: #26272C;
+  /* color: #26272C; */
+  color: #0F31DF;
   font-size: 5rem;
   text-shadow: 2px 2px 0 #FF5F0F,
               -2px 2px 0 #FF5F0F,
@@ -102,6 +103,14 @@ article {
   color: #565656;
   font-size: .8rem;
   text-align: center;
+}
+
+.info-text a {
+  color: #0F31DF;
+}
+
+.info-text a:hover {
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 400px) {
