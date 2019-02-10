@@ -16,6 +16,26 @@ const padZero = (number) => {
 }
 
 
+const setUp = () => {
+    document.querySelector(".modal").style.display = "flex";     
+}
+
+
+const increase = () => {
+    console.log("Increasing count");
+}
+
+
+const decrease = () => {
+    console.log("Decreasing count");
+}
+
+
+const modalClose = () => {
+    document.querySelector(".modal").style.display = "none";
+}
+
+
 const start = () => {
     running = true;
     let minutes = 25;
@@ -54,9 +74,4 @@ const reset = () => {
     document.querySelector(".clock-digits").innerHTML = `25:00`;
     titleText.innerHTML = `pomodoro focus`
     startBtn.disabled = false;
-}
-
-
-const setUp = () => {
-    console.log("Setting up...");
 }
