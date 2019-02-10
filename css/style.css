@@ -3,9 +3,10 @@
   src: url('../fonts/Monoid-Regular.ttf') format('truetype');
 }
 
-* {
+/* {
   box-sizing: border-box;
 }
+*/
 
 html {
   line-height: 1.15;
@@ -20,7 +21,7 @@ body {
 }
 
 article {
-  padding: 1rem;
+  /* padding: 1rem; */
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
@@ -28,15 +29,20 @@ article {
   font-family: 'Monoid-Regular', monospace;
   background-image: url("../images/inspiration-geometry.png");
   background-repeat: repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .clock {
-  height: 40vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   border-radius: 8px;
   justify-content: center;
   background-color: #212324;
+  width: 98%;
 }
 
 .clock-digits {
@@ -52,24 +58,23 @@ article {
 
 .controls {
   width: 50%;
-  height: 40vh;
+  height: 35vh;
   display: flex;
   margin: 0 auto;
   align-items: center;
   border-radius: 8px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .controls .btn {
-  width: 100%;
-  height: 60px;
+  width: 90%;
+  height: 50px;
   color: #1E90FF;
   font-size: 2rem;
   min-width: 290px;
   max-width: 375px;
   border-radius: 8px;
-  margin-bottom: 10px;
   border: 4px solid #1E90FF;
   background-color: #212324;
 }
@@ -81,8 +86,8 @@ article {
 }
 
 .info {
-  width: 100%;
-  height: 15vh;
+  width: 98%;
+  height: 12vh;
   display: flex;
   border-radius: 8px;
   flex-direction: column;
@@ -115,20 +120,42 @@ article {
   }
 }
 
-@media only screen and (min-width: 600px) {
-  .clock-digits {
-    font-size: 10rem;
-  }
-}
-
 @media only screen and (min-width: 700px) {
   .clock-digits {
-    font-size: 12rem;
+    font-size: 10rem;
+    text-shadow: 2px 2px 0 #FF5F0F,
+                -2px 2px 0 #FF5F0F,
+                2px -2px 0 #FF5F0F,
+                -2px -2px 0 #FF5F0F,
+                10px 10px 0 #F25A0E;
   }
 }
 
 @media only screen and (min-width: 800px) {
   .clock-digits {
+    font-size: 12rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .clock-digits {
     font-size: 14rem;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .clock-digits {
+    font-size: 16rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .clock-digits {
+    font-size: 18rem;
+    text-shadow: 2px 2px 0 #FF5F0F,
+                -2px 2px 0 #FF5F0F,
+                2px -2px 0 #FF5F0F,
+                -2px -2px 0 #FF5F0F,
+                12px 12px 0 #F25A0E;
   }
 }
