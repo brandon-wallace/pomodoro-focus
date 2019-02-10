@@ -3,11 +3,6 @@
   src: url('../fonts/Monoid-Regular.ttf') format('truetype');
 }
 
-/* {
-  box-sizing: border-box;
-}
-*/
-
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -45,7 +40,7 @@ article {
 }
 
 .clock-digits {
-  margin: 0 1rem 0 0;
+  margin: 1rem 1rem 0 0;
   color: #26272C;
   font-size: 5rem;
   text-shadow: 2px 2px 0 #FF5F0F,
