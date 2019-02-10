@@ -10,18 +10,54 @@
 
     <article>
 
+      <!-- Clock -->
       <div class="clock">
         <h1 class="clock-digits">25:00</h1>
       </div>
 
+      <!-- Controls -->
       <div class="controls">
         <button class="btn" onclick="reset();">RESET</button>
         <button class="btn" onclick="start();">START</button>
         <button class="btn" onclick="setUp();">SET</button>
       </div>
 
+      <!-- Footer -->
       <div class="info">
+<<<<<<< Updated upstream
         <p class="info-text">brandon wallace 2019</p>
+=======
+        <p class="info-text"><a href="#">brandon wallace</a> 2019</p>
+      </div>
+
+      <!-- Modal window -->
+      <div class="modal">
+        <div class="modal-content">
+          <h1>Settings</h1>
+          <div>
+            <h3 class="modal-theme">Theme:</h3>
+            <input type="radio" name="theme" value="dark" checked>
+            <label for="dark">Dark</label>
+
+            <input type="radio" name="theme" value="light">
+            <label for="light">Light</label>
+          </div>
+
+          <div class="sessions">
+            <h3>Number of sessions:</h3>
+            <h5>(25 minutes + 5 minute)</h5>
+            <div class="session-controls">
+              <div><span class="session-quantity">1</span></div>
+              <button class="increase" onclick="increase();">&#10133;</button>
+              <button class="decrease" onclick="decrease();">&#10134;</button>
+            </div>
+          </div>
+
+          <div class="submin-btn">
+            <button class="btn" onclick="modalClose();" type="submit">SUBMIT</button>
+          </div>
+        </div>
+>>>>>>> Stashed changes
       </div>
 
     </article>
