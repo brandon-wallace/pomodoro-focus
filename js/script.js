@@ -9,6 +9,26 @@ const padZero = (number) => {
 }
 
 
+const setUp = () => {
+    document.querySelector(".modal").style.display = "flex";     
+}
+
+
+const increase = () => {
+    console.log("Increasing count");
+}
+
+
+const decrease = () => {
+    console.log("Decreasing count");
+}
+
+
+const modalClose = () => {
+    document.querySelector(".modal").style.display = "none";
+}
+
+
 const start = () => {
     let minutes = 25;
     let seconds = 60;
@@ -35,9 +55,4 @@ const start = () => {
 
 const reset = () => {
     document.querySelector(".clock-digits").innerHTML = `25:00`;
-}
-
-
-const setUp = () => {
-    console.log("Setting up...");
 }
