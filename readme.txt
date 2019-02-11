@@ -1,6 +1,6 @@
 Pomodoro Focus
 
-A simple pomodoro timer.
+A simple online pomodoro timer.
 
 Features:
 
