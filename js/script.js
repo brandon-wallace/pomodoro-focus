@@ -22,12 +22,24 @@ const setUp = () => {
 
 
 const increase = () => {
-    console.log("Increasing count");
+    let interval = Number(document.getElementById("quantity").innerHTML);
+    if (interval > 8) {
+        intervar = 9;
+    } else {
+        interval += 1;
+    }
+    document.getElementById("quantity").innerHTML = interval;
 }
 
 
 const decrease = () => {
-    console.log("Decreasing count");
+    let interval = document.getElementById("quantity").innerHTML;
+    if (interval < 2) {
+        intervar = 1;
+    } else {
+        interval -= 1;
+    }
+    document.getElementById("quantity").innerHTML = interval;
 }
 
 

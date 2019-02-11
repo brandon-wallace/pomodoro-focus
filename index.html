@@ -28,17 +28,19 @@
         </div>
       </div>
 
-      <!-- Footer -->
+      <!-- Information -->
       <div class="info">
-        <p class="info-text"><a href="#">brandon wallace</a> 2019</p>
+        <p class="info-text"><a href="https://brandonwallace.cc">brandon wallace</a> 2019</p>
       </div>
 
       <!-- Modal window -->
       <div class="modal">
         <div class="modal-content">
-          <h1>Settings</h1>
+
+          <h1 class="modal-text">Settings</h1>
+
           <div>
-            <h3 class="modal-theme">Theme:</h3>
+            <h3 class="modal-text modal-theme">Theme:</h3>
             <input type="radio" name="theme" value="dark" checked>
             <label for="dark">Dark</label>
 
@@ -47,18 +49,25 @@
           </div>
 
           <div class="sessions">
-            <h3>Number of sessions:</h3>
-            <h5>(25 minutes + 5 minute)</h5>
+
+            <h3 class="modal-text">Number of Intervals:</h3>
+
             <div class="session-controls">
-              <div><span class="session-quantity">1</span></div>
-              <button class="increase" onclick="increase();">&#10133;</button>
-              <button class="decrease" onclick="decrease();">&#10134;</button>
+              <h3 id="quantity" class="quantity">1</h3>
+              <h3 class="increase" onclick="increase();">+</h3>
+              <h3 class="decrease" onclick="decrease();">-</h3>
             </div>
+
+            <h5> 1 interval =</h5>
+            <h5> 25 minutes of work</h5>
+            <h5>+ 5 minutes break</h5>
+
           </div>
 
-          <div class="submin-btn">
+          <div class="submit-btn">
             <button class="btn" onclick="modalClose();" type="submit">SUBMIT</button>
           </div>
+
         </div>
       </div>
 
