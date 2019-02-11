@@ -74,13 +74,9 @@ article {
   justify-content: space-around;
 }
 
-.controls-container .btn {
-  width: 90%;
-  height: 50px;
+.btn {
   color: #1E90FF;
   font-size: 1.5rem;
-  min-width: 290px;
-  max-width: 375px;
   overflow: visible;
   border-radius: 8px;
   text-transform: none;
@@ -88,6 +84,13 @@ article {
   border: 4px solid #1E90FF;
   background-color: #000000;
   -webkit-appearance: button;
+}
+
+.controls-container .btn {
+  width: 90%;
+  height: 50px;
+  min-width: 290px;
+  max-width: 375px;
 }
 
 .btn:hover {
@@ -135,23 +138,67 @@ article {
   align-items: center;
   justify-content: center;
   background-color: #202020;
+  background-image: url("../images/inspiration-geometry.png");
 }
 
 .modal-content {
   width: 90%;
   height: 90%;
   color: #FFFFFF;
+  max-width: 400px;
+}
+
+input {
+  width: 16px;
+  height: 16px;
+  outline: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+}
+
+input:checked {
+  border: 8px solid #1e90ff;
+}
+
+.modal-text {
+  color: #f25a0e;
 }
 
 .session-controls {
+  width: 100%;
+  max-width: 375px;
   display: flex;
+  align-items: center;
   justify-content: space-around;
 }
 
-.session-quantity {
-  width: 15px;
-  height: 15px;
-  background-color: #919191;
+.quantity {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 10px;
+  color: #000000;
+  background-color: #FFFFFF;
+  box-shadow: inset 5px 3px 4px #19170d;
+  border: 4px solid #dd5621;
+}
+
+.increase,
+.decrease {
+  margin: 0;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: inherit;
+}
+
+.submit-btn .btn {
+  width: 90%;
+  height: 50px;
+  min-width: 290px;
+  max-width: 375px;
+  margin-top: 1rem;
 }
 
 @media only screen and (min-width: 400px) {
