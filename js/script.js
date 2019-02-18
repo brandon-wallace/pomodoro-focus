@@ -44,7 +44,15 @@ const decrease = () => {
 
 
 const modalClose = () => {
+    let bg = document.querySelectorAll('input');
     document.querySelector(".modal").style.display = "none";
+    if (bg[0].checked === true) {
+        document.querySelector("article").style.backgroundColor = '#47494B';
+        document.querySelectorAll(".btn")[0].style.backgroundColor = '#000000';
+    } else {
+        document.querySelector("article").style.backgroundColor = '#E9EDF2';
+        document.querySelectorAll(".btn")[0].style.backgroundColor = '#FFFFFF';
+    }
 }
 
 
