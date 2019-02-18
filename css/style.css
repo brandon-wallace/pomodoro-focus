@@ -19,35 +19,31 @@ article {
   width: 100vw;
   height: 100vh;
   display: flex;
+  position: relative;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
   box-sizing: border-box;
+  justify-content: center;
   background-color: #47494B;
   font-family: 'Monoid-Regular', monospace;
   background-image: url("../images/project-paper.png");
   background-repeat: repeat;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
 }
 
 .clock {
   height: 50vh;
   display: flex;
-  align-items: center;
   border-radius: 8px;
+  align-items: center;
   justify-content: center;
   background-color: hsla(000,000%,000%, .5);
   width: 98%;
 }
 
 .clock-digits {
-  margin: 1rem 1rem 0 0;
   color: #0F31DF;
   font-size: 5rem;
+  margin: 1rem 1rem 0 0;
   text-shadow: 2px 2px 0 #FF5F0F,
               -2px 2px 0 #FF5F0F,
               2px -2px 0 #FF5F0F,
@@ -158,7 +154,7 @@ input {
 }
 
 input:checked {
-  border: 8px solid #1e90ff;
+  border: 5px solid #1e90ff;
 }
 
 .modal-text {
@@ -167,18 +163,18 @@ input:checked {
 
 .session-controls {
   width: 100%;
-  max-width: 375px;
   display: flex;
+  max-width: 375px;
   align-items: center;
   justify-content: space-around;
 }
 
 .quantity {
   margin: 0;
-  font-size: 3rem;
-  font-weight: bold;
   padding: 10px;
   color: #000000;
+  font-size: 3rem;
+  font-weight: bold;
   background-color: #FFFFFF;
   box-shadow: inset 5px 3px 4px #19170d;
   border: 4px solid #dd5621;
@@ -187,9 +183,9 @@ input:checked {
 .increase,
 .decrease {
   margin: 0;
+  color: #FFFFFF;
   font-size: 3.5rem;
   font-weight: bold;
-  color: #FFFFFF;
   font-family: inherit;
 }
 
