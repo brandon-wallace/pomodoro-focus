@@ -35,11 +35,13 @@ article {
   display: flex;
   border-radius: 8px;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   background-color: hsla(000,000%,000%, .5);
   width: 98%;
 }
 
+.clock-text,
 .clock-digits {
   color: #0F31DF;
   font-size: 5rem;
@@ -49,6 +51,10 @@ article {
               2px -2px 0 #FF5F0F,
               -2px -2px 0 #FF5F0F,
               8px 8px 0 #F25A0E;
+}
+
+.clock-text {
+  text-spacing: 1.5;
 }
 
 .controls {
@@ -243,6 +249,11 @@ input:checked {
 }
 
 @media only screen and (min-width: 1200px) {
+  .clock {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
   .clock-digits {
     font-size: 18rem;
     text-shadow: 2px 2px 0 #FF5F0F,
