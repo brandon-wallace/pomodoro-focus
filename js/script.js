@@ -48,10 +48,18 @@ const modalClose = () => {
     document.querySelector(".modal").style.display = "none";
     if (bg[0].checked === true) {
         document.querySelector("article").style.backgroundColor = '#47494B';
-        document.querySelectorAll(".btn")[0].style.backgroundColor = '#000000';
+        let button = document.querySelectorAll(".btn");
+        for (let i = 0; i < button.length; i++) {
+            button[i].style.backgroundColor = '#171717';
+            button[i].style.border = '4px solid #0E4275';
+        }
     } else {
         document.querySelector("article").style.backgroundColor = '#E9EDF2';
-        document.querySelectorAll(".btn")[0].style.backgroundColor = '#FFFFFF';
+        let button = document.querySelectorAll(".btn");
+        for (let i = 0; i < button.length; i++) {
+            button[i].style.backgroundColor = '#FFFFFF';
+            button[i].style.border = '4px solid #1E90FF';
+        }
     }
 }
 
