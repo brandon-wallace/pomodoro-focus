@@ -72,7 +72,7 @@ const modalClose = () => {
 
 const start = () => {
     running = true;
-    let minutes = 25;
+    let minutes = 1;
     let seconds = 60;
     let breakminutes = 5;
     let breakseconds = 60;
@@ -92,26 +92,27 @@ const start = () => {
                 if (seconds === 0 && minutes === 0) {
                     timesUpSound.play();
                     // digits.innerHTML = `25:00`;
-                    // digits.innerHTML = `5:00`;
+                    digits.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)}`;
+                    digits.innerHTML = `5:00`;
                     digits.style.color = '#FF0909';
                     document.querySelector(".clock-text").innerHTML = `break!`;
-                    digits.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)}`;
+                    document.querySelector(".clock-digits").classList.add('flash');
                     titleText.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)} pomodoro focus`;
-                    if (breakseconds === 60) {
-                        breakminutes -= 1;
-                    }
-                    breakseconds -= 1;
-                    digits.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)}`;
-                    titleText.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)} pomodoro focus`;
-                    if (breakseconds === 0) {
-                        if (breakseconds === 0 && breakminutes === 0) {
-                            clearInterval(timerId);
-                        }
-                        breakseconds = 60;
-                    } else {
-                        breakseconds -= 1;
-                        // clearInterval(timerId);
-                    }
+                    // if (breakseconds === 60) {
+                    //     breakminutes -= 1;
+                    // }
+                    // breakseconds -= 1;
+                    // digits.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)}`;
+                    // titleText.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)} pomodoro focus`;
+                    // if (breakseconds === 0) {
+                    //     if (breakseconds === 0 && breakminutes === 0) {
+                    //         clearInterval(timerId);
+                    //     }
+                    //     breakseconds = 60;
+                    // } else {
+                    //     breakseconds -= 1;
+                    //     // clearInterval(timerId);
+                    // }
                     clearInterval(timerId);
                 } else {
                     seconds = 60;
@@ -130,6 +131,7 @@ const reset = () => {
     document.querySelector(".clock-text").innerHTML = `work`;
     document.querySelector(".clock-digits").innerHTML = `25:00`;
     document.querySelector(".clock-digits").style.color = '#0F31DF';
+    document.querySelector(".clock-digits").classList.remove('flash');
     titleText.innerHTML = `pomodoro focus`
     startBtn.disabled = false;
 }

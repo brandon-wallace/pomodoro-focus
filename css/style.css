@@ -58,7 +58,9 @@ article {
 }
 
 .flash {
-  animation: flash 500ms forward;
+  animation-name: flash;
+  animation-duration: 2000ms;
+  animation-timing-function: ease-out;
 }
 
 @keyframes flash {
