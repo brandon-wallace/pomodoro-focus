@@ -57,6 +57,31 @@ article {
   text-spacing: 1.5;
 }
 
+.flash {
+  animation: flash 500ms forward;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .controls {
   height: 35vh;
   display: flex;
@@ -126,6 +151,7 @@ article {
 
 .info-text a:hover {
   font-weight: bold;
+  border-bottom: 1px solid #F25A0E;
 }
 
 .modal {
