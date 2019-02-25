@@ -18,12 +18,21 @@ body {
 article {
   width: 100vw;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   box-sizing: border-box;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #47494B;
   font-family: 'Monoid-Regular', monospace;
   background-image: url("../images/project-paper.png");
@@ -32,11 +41,20 @@ article {
 
 .clock {
   height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border-radius: 8px;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: hsla(000,000%,000%, .5);
   width: 98%;
 }
@@ -44,7 +62,9 @@ article {
 .clock-text,
 .clock-digits {
   color: #0F31DF;
+  font-size: 80px;
   font-size: 5rem;
+  margin: 16px 16px 0 0;
   margin: 1rem 1rem 0 0;
   text-shadow: 2px 2px 0 #FF5F0F,
               -2px 2px 0 #FF5F0F,
@@ -54,57 +74,110 @@ article {
 }
 
 .clock-text {
-  text-spacing: 1.5;
+  -ms-text-spacing: 1.5;
+      text-spacing: 1.5;
 }
 
 .flash {
-  animation-name: flash;
-  animation-duration: 2000ms;
-  animation-timing-function: ease-out;
+  -webkit-animation-name: flash;
+          animation-name: flash;
+  -webkit-animation-duration: 2000ms;
+          animation-duration: 2000ms;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+    20% {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    40% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+    60% {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    80% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+    100% {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
 }
 
 @keyframes flash {
     0% {
         opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     }
     20% {
         opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     }
     40% {
         opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     }
     60% {
         opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     }
     80% {
         opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     }
     100% {
         opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     }
 }
 
 .controls {
   height: 35vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .controls-container {
   width: 50%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
   max-height: 185px;
   border-radius: 8px;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .btn {
   color: #1E90FF;
+  font-size: 24px;
   font-size: 1.5rem;
   overflow: visible;
   border-radius: 8px;
@@ -129,17 +202,27 @@ article {
 .info {
   width: 98%;
   height: 12vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
   border-radius: 8px;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: hsla(000,000%,000%, .5);
 }
 
 .info-text {
   margin-top: 0;
   color: #565656;
+  font-size: 12.8px;
   font-size: .8rem;
   text-align: center;
 }
@@ -164,8 +247,13 @@ article {
   height: 100%;
   display: none;
   position: absolute;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+              -ms-grid-row-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #202020;
   background-image: url("../images/project-paper.png");
 }
@@ -182,7 +270,8 @@ input {
   height: 16px;
   outline: none;
   -moz-appearance: none;
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   background-color: #FFFFFF;
 }
 
@@ -198,17 +287,23 @@ input:checked {
   width: 100%;
   height: 55px;
   margin: 35px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   max-width: 325px;
   line-height: 55px;
-  align-items: center;
-  justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .quantity {
   margin: 0;
   padding: 10px;
   color: #000000;
+  font-size: 48px;
   font-size: 3rem;
   font-weight: bold;
   background-color: #FFFFFF;
@@ -219,11 +314,14 @@ input:checked {
 .decrease {
   margin: 0;
   color: #FFFFFF;
+  font-size: 56px;
   font-size: 3.5rem;
   font-weight: bold;
   font-family: inherit;
   -moz-user-select: none;
-  user-select: none;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .submit-btn .btn {
@@ -231,6 +329,7 @@ input:checked {
   height: 50px;
   min-width: 290px;
   max-width: 375px;
+  margin-top: 16px;
   margin-top: 1rem;
 }
 
@@ -283,9 +382,17 @@ input:checked {
 
 @media only screen and (min-width: 1200px) {
   .clock {
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .clock-digits {
     font-size: 18rem;
