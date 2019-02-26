@@ -70,6 +70,22 @@ const modalClose = () => {
 }
 
 
+const startBreak = () => {
+    let min = 5;
+    let sec = 60;
+    if (running) {
+        min -= 1;
+    }
+    sec -= 1;
+    if (seconds === 0) {
+        if (seconds === 0 && minutes === 0) {
+            timesUpSound.play();
+        }
+    }
+
+}
+
+
 const start = () => {
     running = true;
     let minutes = 1;
@@ -98,6 +114,7 @@ const start = () => {
                     document.querySelector(".clock-text").innerHTML = `break!`;
                     document.querySelector(".clock-digits").classList.add('flash');
                     titleText.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)} pomodoro focus`;
+                    startBreak();
                     // if (breakseconds === 60) {
                     //     breakminutes -= 1;
                     // }
