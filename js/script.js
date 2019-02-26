@@ -76,20 +76,25 @@ const startBreak = () => {
     let digits = document.querySelector(".clock-digits");
     let timeId = setInterval(() => {
         if (running) {
-            min -= 1;
-        }
-        sec -= 1;
-        digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
-        titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
-        if (seconds === 0) {
-            if (seconds === 0 && minutes === 0) {
-                timesUpSound.play();
-                clearInterval(timerId);
+            if (sec === 60) {
+                min -= 1;
             }
-            minutes -= 1;
+            sec -= 1;
+            digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
+            titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+            if (sec === 0) {
+                if (sec === 0 && min === 0) {
+                    timesUpSound.play();
+                    clearInterval(timerId);
+                } else {
+                    sec = 60;
+                } 
+                min -= 1;
+            } 
+        } else {
+            clearInterval(timerId);
         }
-    }, 1000)
-
+    }, 1000);
 }
 
 
@@ -120,21 +125,6 @@ const start = () => {
                     // titleText.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)} pomodoro focus`;
                     startBreak();
                     clearInterval(timerId);
-                    // if (breakseconds === 60) {
-                    //     breakminutes -= 1;
-                    // }
-                    // breakseconds -= 1;
-                    // digits.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)}`;
-                    // titleText.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)} pomodoro focus`;
-                    // if (breakseconds === 0) {
-                    //     if (breakseconds === 0 && breakminutes === 0) {
-                    //         clearInterval(timerId);
-                    //     }
-                    //     breakseconds = 60;
-                    // } else {
-                    //     breakseconds -= 1;
-                    //     // clearInterval(timerId);
-                    // }
                 } else {
                     seconds = 60;
                 }
