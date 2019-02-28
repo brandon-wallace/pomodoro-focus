@@ -3,6 +3,7 @@
 
 let running = false;
 let titleText = document.querySelector("title");
+let sessions = 0;
 const beep = new Audio('audio/404151_select-01.mp3');
 const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 const startBtn = document.querySelector(".start-btn");
@@ -44,8 +45,8 @@ const decrease = () => {
 
 
 const modalClose = () => {
-    let sessions = document.querySelector("quantity");
     let bg = document.querySelectorAll('input');
+    sessions = document.querySelector('quantity');
     document.querySelector(".modal").style.display = "none";
     if (bg[0].checked === true) {
         document.querySelector(".clock").style.backgroundColor = 'hsla(0, 0%, 0%, 0.5)';
@@ -74,7 +75,7 @@ const startBreak = () => {
     let min = 5;
     let sec = 60;
     let digits = document.querySelector(".clock-digits");
-    let timeId = setInterval(() => {
+    let timerId = setInterval(() => {
         if (running) {
             if (sec === 60) {
                 min -= 1;
@@ -85,7 +86,15 @@ const startBreak = () => {
             if (sec === 0) {
                 if (sec === 0 && min === 0) {
                     timesUpSound.play();
-                    clearInterval(timerId);
+                    digits.style.color = '#0F31DF';
+                    digits.innerHTML = `25:00`;
+                    document.querySelector(".clock-text").innerHTML = `work`;
+                    sessions -= 1;
+                    if (sessions === 0) {
+                        clearInterval(timerId);
+                    } else {
+                        start();
+                    }
                 } else {
                     sec = 60;
                 } 
@@ -118,7 +127,7 @@ const start = () => {
             if (seconds === 0) {
                 if (seconds === 0 && minutes === 0) {
                     timesUpSound.play();
-                    // digits.innerHTML = `25:00`;
+                    digits.innerHTML = `05:00`;
                     digits.style.color = '#FF0909';
                     document.querySelector(".clock-text").innerHTML = `break!`;
                     document.querySelector(".clock-digits").classList.add('flash');

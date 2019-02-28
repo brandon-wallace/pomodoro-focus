@@ -81,8 +81,8 @@ article {
 .flash {
   -webkit-animation-name: flash;
           animation-name: flash;
-  -webkit-animation-duration: 2000ms;
-          animation-duration: 2000ms;
+  -webkit-animation-duration: 3000ms;
+          animation-duration: 3000ms;
   -webkit-animation-timing-function: ease-out;
           animation-timing-function: ease-out;
 }
