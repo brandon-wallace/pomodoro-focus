@@ -3,7 +3,6 @@
 
 let running = false;
 let titleText = document.querySelector("title");
-let sessions = 0;
 const beep = new Audio('audio/404151_select-01.mp3');
 const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 const startBtn = document.querySelector(".start-btn");
@@ -18,7 +17,7 @@ const padZero = (number) => {
 
 
 const setUp = () => {
-    document.querySelector(".modal").style.display = "flex";     
+    document.querySelector(".modal").style.display = "flex";
 }
 
 
@@ -46,7 +45,10 @@ const decrease = () => {
 
 const modalClose = () => {
     let bg = document.querySelectorAll('input');
-    sessions = document.querySelector('quantity');
+    const getSessionCount = () => {
+        let sessions = Number(document.querySelector('.quantity').innerHTML);
+        return sessions;
+    }
     document.querySelector(".modal").style.display = "none";
     if (bg[0].checked === true) {
         document.querySelector(".clock").style.backgroundColor = 'hsla(0, 0%, 0%, 0.5)';
@@ -68,14 +70,48 @@ const modalClose = () => {
             button[i].style.border = '4px solid #1E90FF';
         }
     }
+    return getSessionCount;
 }
 
 
 const startBreak = () => {
-    let min = 5;
     let sec = 60;
+    let min = 5;
+    const breakTimer = () => {
+        let breakId = setInterval(() => {
+            if (sec === 60) {
+                min -= 1;
+            }
+            sec -= 1;
+            console.clear();
+            console.log(`min: ${min} sec: ${sec}`);
+            if (sec === 0) {
+                if (sec === 0 && min === 0) {
+                    clearInterval(breakId);
+                } else {
+                    sec = 60;
+                }
+                min -= 1;
+            }
+        }, 1000);
+    }
+    return breakTimer();
+}
+
+
+const startTimer = () => {
+    running = true;
+    return running;
+}
+
+const timerCountdown = () => {
+    let sec = 60;
+    let min = 1;
     let digits = document.querySelector(".clock-digits");
     let timerId = setInterval(() => {
+        startTimer();
+        // console.log(getSessionCount);
+
         if (running) {
             if (sec === 60) {
                 min -= 1;
@@ -85,65 +121,97 @@ const startBreak = () => {
             titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
             if (sec === 0) {
                 if (sec === 0 && min === 0) {
-                    timesUpSound.play();
-                    digits.style.color = '#0F31DF';
-                    digits.innerHTML = `25:00`;
-                    document.querySelector(".clock-text").innerHTML = `work`;
-                    sessions -= 1;
-                    if (sessions === 0) {
-                        clearInterval(timerId);
-                    } else {
-                        start();
-                    }
+                    // timesUpSound.play();
+                    running = false;
+                    clearInterval(timerId);
+                    startBreak();
                 } else {
                     sec = 60;
-                } 
+                }
                 min -= 1;
-            } 
+            }
         } else {
             clearInterval(timerId);
         }
     }, 1000);
 }
 
+// const startBreak = () => {
+//     let min = 1;
+//     let sec = 60;
+//     let digits = document.querySelector(".clock-digits");
+//     let breakId = setInterval(() => {
+//         if (running) {
+//             if (sec === 60) {
+//                 min -= 1;
+//                 console.log(sessions);
+//             }
+//             sec -= 1;
+//             digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
+//             titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+//             if (sec === 0) {
+//                 if (sec === 0 && min === 0) {
+//                     timesUpSound.play();
+//                     digits.style.color = '#0F31DF';
+//                     digits.innerHTML = `25:00`;
+//                     document.querySelector(".clock-text").innerHTML = `work`;
+//                     sessions -= 1;
+//                     if (sessions === 0) {
+//                         clearInterval(breakId);
+//                     } else {
+//                         startTimer();
+//                     }
+//                 } else {
+//                     sec = 60;
+//                 }
+//                 min -= 1;
+//             }
+//         } else {
+//             clearInterval(breakId);
+//         }
+//     }, 1000);
+// }
 
-const start = () => {
-    running = true;
-    let minutes = 1;
-    let seconds = 60;
-    let digits = document.querySelector(".clock-digits");
-    beep.play();
 
-    let timerId = setInterval(() => {
-        if (running) {
-            startBtn.innerHTML = 'PAUSE';
-            startBtn.disabled = true;
-            if (seconds === 60) {
-                minutes -= 1;
-            }
-            seconds -= 1;
-            digits.innerHTML = `${padZero(minutes)}:${padZero(seconds)}`;
-            titleText.innerHTML = `${padZero(minutes)}:${padZero(seconds)} pomodoro focus`;
-            if (seconds === 0) {
-                if (seconds === 0 && minutes === 0) {
-                    timesUpSound.play();
-                    digits.innerHTML = `05:00`;
-                    digits.style.color = '#FF0909';
-                    document.querySelector(".clock-text").innerHTML = `break!`;
-                    document.querySelector(".clock-digits").classList.add('flash');
-                    // titleText.innerHTML = `${padZero(breakminutes)}:${padZero(breakseconds)} pomodoro focus`;
-                    startBreak();
-                    clearInterval(timerId);
-                } else {
-                    seconds = 60;
-                }
-                minutes -= 1;
-            }
-        } else {
-            clearInterval(timerId);
-        }
-    }, 1000)
-}
+// const startTimer = () => {
+//     running = true;
+//     let minutes = 1;
+//     let seconds = 60;
+//     let digits = document.querySelector(".clock-digits");
+//     beep.play();
+//
+//     let timerId = setInterval(() => {
+//         if (running) {
+//             startBtn.innerHTML = 'PAUSE';
+//             startBtn.disabled = true;
+//             if (seconds === 60) {
+//                 minutes -= 1;
+//             }
+//             seconds -= 1;
+//             digits.innerHTML = `${padZero(minutes)}:${padZero(seconds)}`;
+//             titleText.innerHTML = `${padZero(minutes)}:${padZero(seconds)} pomodoro focus`;
+//             if (seconds === 0) {
+//                 if (seconds === 0 && minutes === 0) {
+//                     timesUpSound.play();
+//                     digits.innerHTML = `05:00`;
+//                     digits.style.color = '#FF0909';
+//                     document.querySelector(".clock-text").innerHTML = `break!`;
+//                     document.querySelector(".clock-digits").classList.add('flash');
+//                     startBreak();
+//                     if (sessions === 0) {
+//                       clearInterval(breakId);
+//                     }
+//                     clearInterval(timerId);
+//                 } else {
+//                     seconds = 60;
+//                 }
+//                 minutes -= 1;
+//             }
+//         } else {
+//             clearInterval(timerId);
+//         }
+//     }, 1000)
+// }
 
 
 const reset = () => {
