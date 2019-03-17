@@ -77,24 +77,23 @@ const timerCountdown = () => {
     let min = 6;
     let digits = document.querySelector(".clock-digits");
     running = true;
-    console.log(`Starting 25 min interval.`)
     let timerId = setInterval(() => {
         if (running) {
-            console.log(min);
             if (sec === 60) {
                 min -= 1;
             }
-            if (min > 5) {
-                digits.innerHTML = `${padZero(min - 5)}:${padZero(sec)}`;
-                titleText.innerHTML = `${padZero(min - 5)}:${padZero(sec)} pomodoro focus`;
-            } else {
+            sec -= 1;
+            debugger;
+            if (min <= 4 && sec <= 59) {
+                digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
+                titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
                 digits.style.color = '#FF0909';
                 document.querySelector(".clock-text").innerHTML = `break!`;
                 document.querySelector(".clock-digits").classList.add('flash');
+            } else {
                 digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
                 titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
             }
-            sec -= 1;
             if (sec === 0) {
                 console.log(sessions);
                 if (sec === 0 && min === 0) {
@@ -105,7 +104,7 @@ const timerCountdown = () => {
                 } else {
                     sec = 60;
                 }
-                min -= 1;
+                // min -= 1;
             }
         } else {
             clearInterval(timerId);
