@@ -113,6 +113,11 @@ const timerCountdown = () => {
 }
 
 
+const countdown = () => {
+    timerCountdown();
+}
+
+
 const reset = () => {
     running = false;
     document.querySelector(".clock-text").innerHTML = `work`;
