@@ -48,6 +48,7 @@ const decrease = () => {
 const modalClose = () => {
     let bg = document.querySelectorAll('input');
     sessions = Number(document.querySelector('.quantity').innerHTML);
+    console.log(sessions);
     document.querySelector(".modal").style.display = "none";
     if (bg[0].checked === true) {
         document.querySelector(".clock").style.backgroundColor = 'hsla(0, 0%, 0%, 0.5)';
@@ -79,6 +80,7 @@ const timerCountdown = () => {
     running = true;
     let timerId = setInterval(() => {
         if (running) {
+            console.log(`Session count: ${sessions}`);
             if (sec === 60) {
                 min -= 1;
             }
@@ -114,7 +116,10 @@ const timerCountdown = () => {
 
 
 const countdown = () => {
-    timerCountdown();
+    if (sessions > 0) {
+        timerCountdown();
+        sessions -= 1;
+    }
 }
 
 
