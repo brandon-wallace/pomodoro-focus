@@ -18,11 +18,6 @@ const padZero = (number) => {
 }
 
 
-const setUp = () => {
-    document.querySelector(".modal").style.display = "flex";
-}
-
-
 const increase = () => {
     let interval = Number(document.getElementById("quantity").innerHTML);
     if (interval > 8) {
@@ -41,7 +36,12 @@ const decrease = () => {
     } else {
         interval -= 1;
     }
-    document.getElementById("quantity").innerHTML = interval;
+    document.getElementById('quantity').innerHTML = interval;
+}
+
+
+const setOptions = () => {
+    document.querySelector(".modal").style.display = "flex";
 }
 
 
@@ -73,62 +73,97 @@ const modalClose = () => {
 }
 
 
-const timerCountdown = () => {
-    let sec = 60;
-    let min = 6;
-    let digits = document.querySelector(".clock-digits");
-    running = true;
-    let timerId = setInterval(() => {
-        if (running) {
-            console.log(`Session count: ${sessions}`);
-            if (sec === 60) {
-                min -= 1;
-            }
-            sec -= 1;
-            debugger;
-            if (min <= 4 && sec <= 59) {
-                digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
-                titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
-                digits.style.color = '#FF0909';
-                document.querySelector(".clock-text").innerHTML = `break!`;
-                document.querySelector(".clock-digits").classList.add('flash');
-            } else {
-                digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
-                titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
-            }
-            if (sec === 0) {
-                console.log(sessions);
-                if (sec === 0 && min === 0) {
-                    // timesUpSound.play();
-                    running = false;
-                    clearInterval(timerId);
-                    startBreak();
-                } else {
-                    sec = 60;
-                }
-                // min -= 1;
-            }
-        } else {
-            clearInterval(timerId);
-        }
-    }, 1000);
-}
+// const timerCountdown = () => {
+    // let sec = 60;
+    // let min = 1;
+    // let digits = document.querySelector(".clock-digits");
+    // running = true;
+    // let timerId = setInterval(() => {
+    //     if (running) {
+    //         if (sec === 60) {
+    //             min -= 1;
+    //         }
+    //         sec -= 1;
+    //
+    //         if (min <= 4 && sec <= 59) {
+    //             digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
+    //             titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+    //             digits.style.color = '#FF0909';
+    //             document.querySelector(".clock-text").innerHTML = `break!`;
+    //             document.querySelector(".clock-digits").classList.add('flash');
+    //         } else {
+    //             digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
+    //             titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+    //         }
+    //         if (sec === 0) {
+    //             console.log(sessions);
+    //             if (sessions === 0) {
+    //             // if (sec === 0 && min === 0) {
+    //                 // timesUpSound.play();
+    //                 running = false;
+    //                 clearInterval(timerId);
+    //
+    //             } else {
+    //                 sec = 60;
+    //                 min = 5;
+    //             }
+    //         }
+    //     } else {
+    //         clearInterval(timerId);
+    //     }
+    // }, 1000);
+// }
 
 
 const countdown = () => {
-    if (sessions > 0) {
-        timerCountdown();
-        sessions -= 1;
+  let min = 25;
+  let sec = 60;
+  running = true;
+  let digits = document.querySelector(".clock-digits");
+  let timeId = setInterval(() => {
+    if (running) {
+      if (sec === 60) {
+        min -= 1;
+      }
+      sec -= 1;
+      if (min >= 5) {
+        digits.style.color = '#0F31DF';
+        digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
+        titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+      } else {
+        digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
+        titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+        digits.style.color = '#FF0909';
+        document.querySelector(".clock-text").innerHTML = `break!`;
+        document.querySelector(".clock-digits").classList.add('flash');
+      }
+      if (sec === 0) {
+        if (min === 0) {
+          sessions -= 1;
+          beep.play();
+          console.log(`M: ${min} S: ${sec} Session: ${sessions}`);
+          if (sessions === 0) {
+            timesUpSound.play();
+            clearInterval(timeId);
+          } else {
+            min = 25;
+            sec = 60;
+          }
+        }
+        sec = 60;
+      }
     }
-}
+  }, 10);
+};
 
 
 const reset = () => {
     running = false;
+    sessions = 1;
     document.querySelector(".clock-text").innerHTML = `work`;
     document.querySelector(".clock-digits").innerHTML = `25:00`;
     document.querySelector(".clock-digits").style.color = '#0F31DF';
     document.querySelector(".clock-digits").classList.remove('flash');
-    titleText.innerHTML = `pomodoro focus`
+    titleText.innerHTML = `pomodoro focus`;
     startBtn.disabled = false;
 }
