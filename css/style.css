@@ -44,7 +44,6 @@ article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 8px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -163,7 +162,6 @@ article {
   display: flex;
   margin: 0 auto;
   max-height: 185px;
-  border-radius: 8px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -180,7 +178,6 @@ article {
   font-size: 24px;
   font-size: 1.5rem;
   overflow: visible;
-  border-radius: 8px;
   text-transform: none;
   font-family: inherit;
   border: 4px solid #0E4275;
@@ -208,7 +205,6 @@ article {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
-  border-radius: 8px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -370,13 +366,13 @@ input:checked {
 
 @media only screen and (min-width: 900px) {
   .clock-digits {
-    font-size: 14rem;
+    font-size: 13rem;
   }
 }
 
 @media only screen and (min-width: 1000px) {
   .clock-digits {
-    font-size: 16rem;
+    font-size: 14rem;
   }
 }
 
@@ -395,7 +391,7 @@ input:checked {
             justify-content: center;
   }
   .clock-digits {
-    font-size: 18rem;
+    font-size: 16rem;
     text-shadow: 2px 2px 0 #FF5F0F,
                 -2px 2px 0 #FF5F0F,
                 2px -2px 0 #FF5F0F,
