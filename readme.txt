@@ -1,6 +1,8 @@
 Pomodoro Focus
 
-A simple online pomodoro timer.
+A simple online pomodoro timer for mobile and desktop.
+
+https://pomodorofocus.netlify.com/
 
 Features:
 
