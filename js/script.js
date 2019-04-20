@@ -103,6 +103,7 @@ const countdown = () => {
             if (sec === 0) {
                 if (min === 0) {
                     sessions -= 1;
+                    beep.play();
                     if (sessions === 0) {
                         timesUpSound.play();
                         clearInterval(timeId);
