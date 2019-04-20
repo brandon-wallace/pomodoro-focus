@@ -389,7 +389,7 @@ input:checked {
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 800px) and (orientation: portrait) {
   .clock-digits {
     font-size: 12rem;
   }
