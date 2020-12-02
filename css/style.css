@@ -42,6 +42,9 @@ main {
 }
 
 footer {
+    bottom: 0;
+    width: 100%;
+    position: fixed;
 }
 
 .timer {
@@ -183,8 +186,9 @@ footer {
 }
 
 .footer__link {
-    text-align: center;
+    width: 100%;
     font-size: .8rem;
+    text-align: center;
     font-family: monospace, monospace;
 }
 
