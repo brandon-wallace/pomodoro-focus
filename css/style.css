@@ -10,52 +10,62 @@ html {
 
 html,
 body {
-  margin: 0;
+    margin: 0;
   width: 100%;
   height: 100%;
 }
 
-article {
-  width: 100vw;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-  align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-  flex-direction: column;
-  box-sizing: border-box;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-  justify-content: center;
-  background-color: #47494B;
-  font-family: 'Monoid-Regular', monospace;
-  background-image: url("../images/project-paper.png");
-  background-repeat: repeat;
+body {
+    background-image: linear-gradient(to bottom, #444444, #EEE);
 }
 
-.clock {
-  height: 50vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-  align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-  flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-  justify-content: center;
-  background-color: hsla(000, 000%, 000%, .5);
-  width: 98%;
+header {
+    width: 100%;
+}
+
+header h1 {
+    margin: 0;
+    color: #0F31DF;
+    font-size: 3rem;
+    text-align: center;
+    margin: 16px 0 16px 0;
+    margin: 1rem 0 1rem 0;
+    font-family: 'Monoid-Regular';
+    text-shadow: 2px  2px 0 #FFB80F,
+                -2px  2px 0 #FFB80F,
+                 2px -2px 0 #FFB80F,
+                -2px -2px 0 #FFB80F;
+}
+
+main {
+    margin: 8px;
+}
+
+footer {
+}
+
+.timer {
+    color: #FFB80F;
+    padding: .5rem;
+    background-color: hsla(000, 000%, 000%, .8);
+    background-image: url("../images/project-paper.png");
+    background-repeat: repeat;
+}
+
+.timer__text,
+.timer__digits {
+    margin: 8px 0;
+    font-size: 80px;
+    font-size: 5rem;
+    text-align: center;
+    font-family: 'Monoid-Regular', monospace;
+}
+
+.timer__text {
+    font-size: 4rem;
+}
+
+.timer__digits {
 }
 
 .clock-text,
@@ -150,8 +160,48 @@ article {
   }
 }
 
+.control {
+    max-width: 400px;
+    margin: .5rem auto;
+}
+
+.bttn {
+    width: 100%;
+    height: 50px;
+    display: block;
+    color: #1E90FF;
+    font-size: 24px;
+    font-size: 1.5rem;
+    overflow: visible;
+    margin-bottom: 8px;
+    text-transform: none;
+    font-family: inherit;
+    border: 4px solid #0E4275;
+    background-color: #171717;
+    font-family: 'Monoid-Regular', monospace;
+      -webkit-appearance: button;
+}
+
+.footer__link {
+    text-align: center;
+    font-size: .8rem;
+    font-family: monospace, monospace;
+}
+
+.footer__link a {
+    color: #333333;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: monospace, monospace;
+}
+
+.footer__link a:hover {
+    color: #0000AE;
+    text-decoration: underline;
+}
+
+/*
 .controls {
-  width: 100%;
   height: 35vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -166,7 +216,6 @@ article {
 }
 
 .controls-container {
-  width: 50%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -185,12 +234,9 @@ article {
 }
 
 .btn {
-  width: 100%;
   height: 50px;
   color: #1E90FF;
   font-size: 24px;
-  min-width: 290px;
-  max-width: 375px;
   font-size: 1.5rem;
   overflow: visible;
   text-transform: none;
@@ -205,7 +251,6 @@ article {
 }
 
 .info {
-  width: 98%;
   height: 12vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -242,12 +287,12 @@ article {
   font-weight: bold;
   border-bottom: 1px solid #F25A0E;
 }
+*/
 
 .modal {
   top: 0;
   left: 0;
   z-index: 2;
-  width: 100%;
   height: 100%;
   display: none;
   position: absolute;
@@ -263,10 +308,8 @@ article {
 }
 
 .modal-content {
-  width: 90%;
   height: 90%;
   color: #FFFFFF;
-  max-width: 400px;
 }
 
 input {
@@ -337,7 +380,25 @@ input:checked {
   margin-top: 1rem;
 }
 
-@media only screen and (max-width: 900px) and (min-height: 300px) and (orientation: landscape) {
+@media only screen and (max-width: 600px) and (min-height: 320px) and (orientation: landscape) {
+    header h1 {
+        text-align: center;
+    }
+    .timer {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .control {
+        display: flex;
+        max-width: unset;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .bttn {
+        width: 32%;
+    }
+    /*
   .controls {
     width: 100%;
   }
@@ -352,62 +413,70 @@ input:checked {
     min-width: 100px;
     max-width: 175px;
   }
-  .clock {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-    flex-direction: row;
-  }
+  */
 }
 
 @media only screen and (min-width: 400px) and (orientation: portrait) {
+    /*
   .clock-digits {
     font-size: 6rem;
   }
+  */
 }
 
 @media only screen and (min-width: 500px) and (orientation: portrait) {
+    /*
   .clock-digits {
     font-size: 7rem;
   }
+  */
 }
 
 @media only screen and (min-width: 600px) and (orientation: portrait) {
+    /*
   .clock-digits {
     font-size: 8rem;
   }
+  */
 }
 
 @media only screen and (min-width: 700px) and (orientation: portrait) {
   .clock-digits {
     font-size: 10rem;
-    text-shadow: 2px 2px 0 #FF5F0F,
-      -2px 2px 0 #FF5F0F,
-      2px -2px 0 #FF5F0F,
-      -2px -2px 0 #FF5F0F,
-      10px 10px 0 #F25A0E;
+    text-shadow: 2px   2px  0 #FF5F0F,
+                -2px   2px  0 #FF5F0F,
+                 2px  -2px  0 #FF5F0F,
+                -2px  -2px  0 #FF5F0F,
+                 10px  10px 0 #F25A0E;
   }
 }
 
 @media only screen and (min-width: 800px) and (orientation: portrait) {
+    /*
   .clock-digits {
     font-size: 12rem;
   }
+  */
 }
 
 @media only screen and (min-width: 900px) {
+    /*
   .clock-digits {
     font-size: 13rem;
   }
+  */
 }
 
 @media only screen and (min-width: 1000px) {
+    /*
   .clock-digits {
     font-size: 14rem;
   }
+  */
 }
 
 @media only screen and (min-width: 1200px) {
+    /*
   .clock {
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -415,8 +484,6 @@ input:checked {
     align-items: center;
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-    flex-direction: row;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
     justify-content: center;
@@ -430,4 +497,5 @@ input:checked {
       -2px -2px 0 #FF5F0F,
       12px 12px 0 #F25A0E;
   }
+  */
 }

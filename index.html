@@ -1,51 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
   <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A simple free online pomodoro timer to help you focus.">
     <meta name="keywords" content="pomodoro timer, pomodoro online timer,
     pomodoro technique, tomato timer, focus, productivity, digital timer, concentration techniques">
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <title>pomodoro focus</title>
+
   </head>
+
   <body>
 
-    <article>
+    <!-- START header -->
 
-      <!-- Clock -->
-      <div class="clock">
-        <h1 class="clock-text">WORK</h1>
-        <h1 class="clock-digits">25:00</h1>
+    <header>
+      <h1>Pomodoro Focus <i class="fas fa-stopwatch"></i><h1>
+    </header>
+
+    <!-- END header -->
+
+    <!-- START main -->
+
+    <main>
+
+      <div class="timer">
+        <h2 class="timer__text">WORK</h2>
+        <h2 class="timer__digits">25:00</h2>
       </div>
 
-      <!-- Controls -->
-      <div class="controls">
-        <div class="controls-container">
-          <button class="btn" onclick="reset();">RESET</button>
-          <button class="btn start-btn" onclick="countdown();">START</button>
-          <button class="btn" onclick="setOptions();">SET</button>
-        </div>
+      <div class="control">
+        <button class="bttn" onclick="reset();"><i class="fas fa-history"></i> RESET</button>
+        <button class="bttn start-btn" onclick="countdown();"><i class="fas fa-play"></i> START</button>
+        <button class="bttn" onclick="setOptions();"><i class="fas fa-cog"></i> SET</button>
       </div>
 
-      <!-- Information -->
-      <div class="info">
-        <p class="info-text"><a href="https://brandonwallace.cc">brandon wallace</a> 2019</p>
-      </div>
+      <!-- START Modal window -->
 
-      <!-- Modal window -->
       <div class="modal">
+
         <div class="modal-content">
 
-          <h1 class="modal-text">Settings</h1>
+          <h2 class="modal-text">Settings</h2>
 
           <div>
-            <h3 class="modal-text modal-theme">Theme:</h3>
-            <input type="radio" id="dark" name="theme" value="dark" checked>
-            <label for="dark">Dark</label>
 
-            <input type="radio" id="light" name="theme" value="light">
-            <label for="light">Light</label>
+            <form>
+              <h3 class="modal-text modal-theme">Theme:</h3>
+              <input type="radio" id="dark" name="theme" value="dark" checked>
+              <i class="far fa-moon"></i>
+              <label for="dark">Dark</label>
+              <input type="radio" id="light" name="theme" value="light">
+              <i class="far fa-sun"></i>
+              <label for="light">Light</label>
+            </form>
+
           </div>
 
           <div class="sessions">
@@ -53,14 +66,14 @@
             <h3 class="modal-text">Number of Sessions:</h3>
 
             <div class="session-controls">
-              <h3 id="quantity" class="quantity">1</h3>
-              <h3 class="increase" onclick="increase();">+</h3>
-              <h3 class="decrease" onclick="decrease();">-</h3>
+              <p id="quantity" class="quantity"><i class="far fa-pause-circle"></i>1</p>
+              <p class="increase" onclick="increase();"><i class="fas fa-plus-circle"></i>+</p>
+              <p class="decrease" onclick="decrease();">-</p>
             </div>
 
-            <h5>1 session =</h5>
-            <h5>25 minutes of work</h5>
-            <h5>+ 5 minutes break</h5>
+            <p>1 session =</p>
+            <p>25 minutes of work</p>
+            <p>+ 5 minutes break</p>
 
           </div>
 
@@ -69,10 +82,27 @@
           </div>
 
         </div>
+
       </div>
 
-    </article>
+      <!-- END Modal window -->
+
+    </main>
+
+    <!-- END main -->
+
+    <!-- START footer -->
+
+    <footer>
+      
+        <p class="footer__link"><a href="https://brandonwallace.cc">brandon wallace</a> &copy; 2020</p>
+
+    </footer>
+
+    <!-- END footer -->
 
     <script src="js/script.js"></script>
+    
   </body>
+
 </html>
