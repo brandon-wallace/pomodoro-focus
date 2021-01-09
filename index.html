@@ -20,7 +20,7 @@
 
     <header>
 
-      <h1>Pomodoro Focus <i class="fas fa-stopwatch"></i><h1>
+      <h1>Pomodoro Focus <i class="fas fa-stopwatch"></i></h1>
 
     </header>
 
@@ -38,7 +38,7 @@
       <div class="control">
         <button class="bttn" onclick="reset();"><i class="fas fa-history"></i> RESET</button>
         <button class="bttn start-btn" onclick="countdown();"><i class="fas fa-play"></i> START</button>
-        <button class="bttn" onclick="setOptions();"><i class="fas fa-cog"></i> SET</button>
+        <button class="bttn settings-bttn"><i class="fas fa-cog"></i> SET</button>
       </div>
 
       <!-- START modal window -->
@@ -65,33 +65,29 @@
                 <i class="fas fa-sun"></i>
               </label>
 
-              <h4 class="model-text">Time:</h4>
-
               <div class="controls">
 
                 <label>Time:
                   <input type="text" class="work-time" id="quantity" value="25" name="time">
                 </label>
 
-                <p class="increase-time"><i class="far fa-plus-square"></i></p>
-                <p class="decrease-time"><i class="far fa-minus-square"></p>
+                <button class="increase-time"><i class="far fa-plus-square"></i></button>
+                <button class="decrease-time"><i class="far fa-minus-square"></i></button>
 
                 </div>
 
               <div class="controls">
 
-                <h4 class="model-text">Break:</h4>
-
                 <label>Break:
                   <input type="text" class="break-time" value="5" name="break">
                 </label>
 
-                <p class="increase-break"><i class="far fa-plus-square"></i></p>
-                <p class="increase-break"><i class="far fa-minus-square"></p>
+                <button class="increase-break"><i class="far fa-plus-square"></i></button>
+                <button class="increase-break"><i class="far fa-minus-square"></i></button>
 
               </div>
 
-              <button class="bttn" onclick="modalClose();" type="submit">SUBMIT</button>
+              <button class="bttn close-modal" onclick="modalClose();" type="submit">SUBMIT</button>
 
             </form>
 
