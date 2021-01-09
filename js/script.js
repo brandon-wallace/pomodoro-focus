@@ -8,6 +8,23 @@ const startBtn = document.querySelector(".start-btn");
 const beep = new Audio('audio/404151_select-01.mp3');
 const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 
+const increaseTime = document.querySelector('.increase-time');
+const decreaseTime = document.querySelector('.decrease-time');
+
+
+const addMinute = () => {
+    console.log(`Added a minute`);
+}
+
+
+const subtractMinute = () => {
+    console.log(`Subtracted a minute`);
+}
+
+
+increaseTime.addEventListener('click', addMinute);
+decreaseTime.addEventListener('click', subtractMinute);
+
 
 const padZero = (number) => {
     if (number < 10) {
@@ -18,7 +35,8 @@ const padZero = (number) => {
 }
 
 
-const increase = () => {
+    /*
+const addMinute = () => {
     let interval = Number(document.getElementById("quantity").innerHTML);
     if (interval > 8) {
         interval = 9;
@@ -27,9 +45,10 @@ const increase = () => {
     }
     document.getElementById("quantity").innerHTML = interval;
 }
+    */
 
-
-const decrease = () => {
+    /*
+const subtractTime = () => {
     let interval = document.getElementById("quantity").innerHTML;
     if (interval < 2) {
         interval = 1;
@@ -38,6 +57,7 @@ const decrease = () => {
     }
     document.getElementById('quantity').innerHTML = interval;
 }
+    */
 
 
 const setOptions = () => {
