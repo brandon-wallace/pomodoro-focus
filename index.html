@@ -19,7 +19,9 @@
     <!-- START header -->
 
     <header>
+
       <h1>Pomodoro Focus <i class="fas fa-stopwatch"></i><h1>
+
     </header>
 
     <!-- END header -->
@@ -39,7 +41,7 @@
         <button class="bttn" onclick="setOptions();"><i class="fas fa-cog"></i> SET</button>
       </div>
 
-      <!-- START Modal window -->
+      <!-- START modal window -->
 
       <div class="modal">
 
@@ -47,45 +49,57 @@
 
           <h2 class="modal-text">Settings</h2>
 
-          <div>
+            <h3 class="modal-text modal-theme">Theme:</h3>
 
             <form>
-              <h3 class="modal-text modal-theme">Theme:</h3>
-              <input type="radio" id="dark" name="theme" value="dark" checked>
-              <i class="far fa-moon"></i>
-              <label for="dark">Dark</label>
-              <input type="radio" id="light" name="theme" value="light">
-              <i class="far fa-sun"></i>
-              <label for="light">Light</label>
+
+              <label for="dark">
+                <input type="radio" id="dark" name="theme" value="dark" checked>
+                Dark
+                <i class="fas fa-moon"></i>
+              </label>
+
+              <label for="light">
+                <input type="radio" id="light" name="theme" value="light">
+                Light
+                <i class="fas fa-sun"></i>
+              </label>
+
+              <h4 class="model-text">Time:</h4>
+
+              <div class="controls">
+
+                <label>Time:
+                  <input type="text" class="work-time" id="quantity" value="25" name="time">
+                </label>
+
+                <p class="increase-time"><i class="far fa-plus-square"></i></p>
+                <p class="decrease-time"><i class="far fa-minus-square"></p>
+
+                </div>
+
+              <div class="controls">
+
+                <h4 class="model-text">Break:</h4>
+
+                <label>Break:
+                  <input type="text" class="break-time" value="5" name="break">
+                </label>
+
+                <p class="increase-break"><i class="far fa-plus-square"></i></p>
+                <p class="increase-break"><i class="far fa-minus-square"></p>
+
+              </div>
+
+              <button class="bttn" onclick="modalClose();" type="submit">SUBMIT</button>
+
             </form>
-
-          </div>
-
-          <div class="sessions">
-
-            <h3 class="modal-text">Number of Sessions:</h3>
-
-            <div class="session-controls">
-              <p id="quantity" class="quantity"><i class="far fa-pause-circle"></i>1</p>
-              <p class="increase" onclick="increase();"><i class="fas fa-plus-circle"></i>+</p>
-              <p class="decrease" onclick="decrease();">-</p>
-            </div>
-
-            <p>1 session =</p>
-            <p>25 minutes of work</p>
-            <p>+ 5 minutes break</p>
-
-          </div>
-
-          <div class="submit-btn">
-            <button class="btn" onclick="modalClose();" type="submit">SUBMIT</button>
-          </div>
 
         </div>
 
       </div>
 
-      <!-- END Modal window -->
+      <!-- END modal window -->
 
     </main>
 
@@ -95,7 +109,7 @@
 
     <footer>
       
-        <p class="footer__link"><a href="https://brandonwallace.cc">brandon wallace</a> &copy; 2020</p>
+      <p class="footer__link"><a href="https://brandonwallace.cc" rel="noreferrer" target="_blank">brandon wallace</a> &copy; 2020</p>
 
     </footer>
 

@@ -16,6 +16,7 @@ body {
 }
 
 body {
+    font-family: 'Monoid-Regular', monospace;
     background-image: linear-gradient(to bottom, #444444, #EEE);
 }
 
@@ -179,7 +180,7 @@ footer {
     margin-bottom: 8px;
     text-transform: none;
     font-family: inherit;
-    border: 4px solid #0E4275;
+    border: 3px solid #1E90FF;
     background-color: #171717;
     font-family: 'Monoid-Regular', monospace;
       -webkit-appearance: button;
@@ -297,9 +298,11 @@ footer {
   top: 0;
   left: 0;
   z-index: 2;
+  width: 100%;
+  height: 100%;
   height: 100%;
   display: none;
-  position: absolute;
+  position: fixed;
     -webkit-box-align: center;
     -ms-flex-align: center;
     -ms-grid-row-align: center;
@@ -307,26 +310,42 @@ footer {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
   justify-content: center;
-  background-color: #202020;
-  background-image: url("../images/project-paper.png");
+  background: linear-gradient(hsla(0, 0%, 0%, 1), hsla(0, 0%, 0%, .7));
+  /*
+   * background-image: url("../images/project-paper.png");
+   */
 }
 
 .modal-content {
   height: 90%;
+  width: 90%;
+  padding: .5em;
   color: #FFFFFF;
+  box-sizing: border-box;
+  background-color: #333333;
+  border: 2px solid #CCCCCC;
+  background-image: url("../images/project-paper.png");
 }
 
-input {
+form {}
+
+label {
+  margin-bottom: 1em;
+}
+
+input[type="radio"] {
   width: 16px;
   height: 16px;
   outline: none;
+  appearance: none;
+  margin-right: 15px;
     -moz-appearance: none;
     -webkit-appearance: none;
-  appearance: none;
+  border-radius: 50%;
   background-color: #FFFFFF;
 }
 
-input:checked {
+input[type="radio"]:checked {
   border: 5px solid #1E90FF;
 }
 
@@ -334,7 +353,7 @@ input:checked {
   color: #f25a0e;
 }
 
-.session-controls {
+.controls {
   width: 100%;
   height: 55px;
   margin: 35px 0;
@@ -350,19 +369,22 @@ input:checked {
   justify-content: space-around;
 }
 
-.quantity {
+.work-time,
+.break-time {
   margin: 0;
-  padding: 10px;
-  color: #000000;
-  font-size: 48px;
+  width: 90px;
+  height: 90px;
+  color: #FFFFFF;
   font-size: 3rem;
   font-weight: bold;
-  background-color: #FFFFFF;
-  border: 4px solid #DD5621;
+  text-align: center;
+  font-family: inherit;
+  background-color: transparent;
+  border-bottom: 4px solid #F25A0E;
 }
 
-.increase,
-.decrease {
+.increase-time,
+.decrease-time {
   margin: 0;
   color: #FFFFFF;
   font-size: 56px;
@@ -402,22 +424,24 @@ input:checked {
     .bttn {
         width: 32%;
     }
+
     /*
-  .controls {
-    width: 100%;
-  }
-  .controls-container {
-    width: 100%;
-    max-width: 600px;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  .btn {
-    width: 30%;
-    min-width: 100px;
-    max-width: 175px;
-  }
-  */
+    .controls {
+      width: 100%;
+    }
+    .controls-container {
+      width: 100%;
+      max-width: 600px;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .btn {
+      width: 30%;
+      min-width: 100px;
+      max-width: 175px;
+    }
+    */
+
 }
 
 @media only screen and (min-width: 400px) and (orientation: portrait) {
