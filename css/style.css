@@ -232,10 +232,12 @@ footer {
 }
 
 .modal-content {
-    height: 96%;
     width: 96%;
-    padding: .5em;
+    height: 96%;
+    padding: 1em;
     color: #FFFFFF;
+    max-width: 350px;
+    max-height: 575px;
     box-sizing: border-box;
     background-color: #333333;
     border: 2px solid #CCCCCC;
@@ -268,6 +270,18 @@ input[type="radio"] {
 
 input[type="radio"]:checked {
     border: 5px solid #1E90FF;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
 
 .modal-text {
@@ -337,6 +351,22 @@ input[type="radio"]:checked {
 }
 
 @media only screen and (max-width: 600px) and (min-height: 320px) and (orientation: landscape) {
+    form {
+        flex-direction: row;
+    }
+    .modal-content {
+        width: 96%;
+        height: 96%;
+        max-width: 575px;
+        max-height: 350px;
+    }
+    .modal-content h2,
+    .modal-content h3 {
+        margin: 0;
+    }
+    .bttn {
+        font-size: 1.2rem;
+    }
     header h1 {
         text-align: center;
     }
