@@ -38,7 +38,7 @@
       <div class="control">
         <button class="bttn" onclick="reset();"><i class="fas fa-history"></i> RESET</button>
         <button class="bttn start-btn" onclick="countdown();"><i class="fas fa-play"></i> START</button>
-        <button class="bttn settings-bttn"><i class="fas fa-cog"></i> SET</button>
+        <button class="bttn settings-bttn"><i class="fas fa-cog"></i> SETTINGS</button>
       </div>
 
       <!-- START modal window -->
@@ -65,29 +65,29 @@
                 <i class="fas fa-sun"></i>
               </label>
 
-              <div class="controls">
+              <div class="settings">
 
-                <label>Time:
-                  <input type="text" class="work-time" id="quantity" value="25" name="time">
+                <label class="modal-text">Time:
+                  <input type="text" class="work-time" value="25" name="time">
                 </label>
 
-                <button class="increase-time"><i class="far fa-plus-square"></i></button>
-                <button class="decrease-time"><i class="far fa-minus-square"></i></button>
-
-                </div>
-
-              <div class="controls">
-
-                <label>Break:
-                  <input type="text" class="break-time" value="5" name="break">
-                </label>
-
-                <button class="increase-break"><i class="far fa-plus-square"></i></button>
-                <button class="increase-break"><i class="far fa-minus-square"></i></button>
+                <button class="icon-bttn increase-time"><i class="far fa-plus-square"></i></button>
+                <button class="icon-bttn decrease-time"><i class="far fa-minus-square"></i></button>
 
               </div>
 
-              <button class="bttn close-modal" onclick="modalClose();" type="submit">SUBMIT</button>
+              <div class="settings">
+
+                <label class="modal-text">Break:
+                  <input type="text" class="break-time" value="5" name="break">
+                </label>
+
+                <button class="icon-bttn increase-break"><i class="far fa-plus-square"></i></button>
+                <button class="icon-bttn increase-break"><i class="far fa-minus-square"></i></button>
+
+              </div>
+
+              <button class="bttn close-modal" type="submit">SUBMIT</button>
 
             </form>
 
