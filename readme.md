@@ -14,9 +14,6 @@
 
 ![screenshot1](images/screenshot1.png)
 ![screenshot2](images/screenshot2.png)
-![screenshot3](images/screenshot3.jpg)
-![screenshot4](images/screenshot4.jpg)
-![screenshot5](images/screenshot5.jpg)
 
 ## License:
 
