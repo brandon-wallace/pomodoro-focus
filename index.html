@@ -19,9 +19,7 @@
     <!-- START header -->
 
     <header>
-
-      <h1>Pomodoro Focus <i class="fas fa-stopwatch"></i></h1>
-
+      <h1>Pomodoro Focus <i class="fas fa-stopwatch"></i><h1>
     </header>
 
     <!-- END header -->
@@ -36,12 +34,12 @@
       </div>
 
       <div class="control">
-        <button class="bttn" onclick="reset();"><i class="fas fa-history"></i> RESET</button>
-        <button class="bttn start-btn" onclick="countdown();"><i class="fas fa-play"></i> START</button>
-        <button class="bttn settings-bttn"><i class="fas fa-cog"></i> SETTINGS</button>
+        <button class="bttn pill" onclick="reset();"><i class="fas fa-history"></i> RESET</button>
+        <button class="bttn pill start-btn" onclick="countdown();"><i class="fas fa-play"></i> START</button>
+        <button class="bttn pill" onclick="setOptions();"><i class="fas fa-cog"></i> SET</button>
       </div>
 
-      <!-- START modal window -->
+      <!-- START Modal window -->
 
       <div class="modal">
 
@@ -49,53 +47,50 @@
 
           <h2 class="modal-text">Settings</h2>
 
-            <h3 class="modal-text modal-theme">Theme:</h3>
+          <div>
 
             <form>
 
-              <label for="dark">
-                <input type="radio" id="dark" name="theme" value="dark" checked>
-                Dark
-                <i class="fas fa-moon"></i>
-              </label>
-
-              <label for="light">
-                <input type="radio" id="light" name="theme" value="light">
-                Light
-                <i class="fas fa-sun"></i>
-              </label>
-
-              <div class="settings">
-
-                <label class="modal-text">Time:
-                  <input type="number" class="time work-time" value="25" name="time">
-                </label>
-
-                <button type="button" class="icon-bttn increase increase-time"><i class="far fa-plus-square"></i></button>
-                <button type="button" class="icon-bttn decrease decrease-time"><i class="far fa-minus-square"></i></button>
-
-              </div>
-
-              <div class="settings">
-
-                <label class="modal-text">Break:
-                  <input type="number" class="break break-time" value="5" name="break">
-                </label>
-
-                <button type="button" class="icon-bttn increase increase-break"><i class="far fa-plus-square"></i></button>
-                <button type="button" class="icon-bttn decrease increase-break"><i class="far fa-minus-square"></i></button>
-
-              </div>
-
-              <button type="submit" class="bttn close-modal">SUBMIT</button>
+              <input type="radio" id="dark" name="theme" value="dark" checked>
+              <i class="far fa-moon"></i>
+              <label for="dark">Dark</label>
+              <input type="radio" id="light" name="theme" value="light">
+              <i class="far fa-sun"></i>
+              <label for="light">Light</label>
 
             </form>
+
+          </div>
+
+          <div class="sessions">
+
+            <div class="session-controls">
+
+              <p>Time:</p>
+              <div class="session-buttons"><span class="add"></span><span class="time">25</span><span class="subtract"></span></div>
+              <p>Short Break:</p>
+              <div class="session-buttons"><span class="add"></span><span class="break-short">5</span><span class="subtract"></span></div>
+              <p>Long Break:</p>
+              <div class="session-buttons"><span class="add"></span><span class="break-long">15</span><span class="subtract"></span></div>
+              <!--
+              <p id="quantity" class="quantity"><i class="far fa-pause-circle"></i>1</p>
+              <p class="increase" onclick="increase();"><i class="fas fa-plus-circle"></i>+</p>
+              <p class="decrease" onclick="decrease();">-</p>
+              -->
+
+            </div>
+
+          </div>
+
+          <div class="submit-btn">
+            <button class="bttn pill" type="submit">SUBMIT</button>
+          </div>
 
         </div>
 
       </div>
 
-      <!-- END modal window -->
+      <!-- END Modal window -->
 
     </main>
 
@@ -105,7 +100,7 @@
 
     <footer>
       
-      <p class="footer__link"><a href="https://brandonwallace.cc" rel="noreferrer" target="_blank">brandon wallace</a> &copy; 2020</p>
+        <p class="footer__link"><a href="https://brandonwallace.cc">brandon wallace</a> &copy; 2020</p>
 
     </footer>
 
