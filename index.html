@@ -5,9 +5,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple free online pomodoro timer to help you focus.">
-    <meta name="keywords" content="pomodoro timer, pomodoro online timer,
-    pomodoro technique, tomato timer, focus, productivity, digital timer, concentration techniques">
+    <meta name="description" content="A online pomodoro timer to help you focus.">
+    <meta name="keywords" content="pomodoro timer, online pomodoro timer, pomodoro clock">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <title>pomodoro focus</title>
@@ -19,7 +18,9 @@
     <!-- START header -->
 
     <header>
+
       <h1>Pomodoro Focus <i class="fas fa-stopwatch"></i><h1>
+
     </header>
 
     <!-- END header -->
@@ -29,14 +30,18 @@
     <main>
 
       <div class="timer">
-        <h2 class="timer__text">WORK</h2>
-        <h2 class="timer__digits">25:00</h2>
+
+        <span class="timer__text">WORK</span>
+        <span class="timer__digits">25:00</span>
+
       </div>
 
       <div class="control">
-        <button class="bttn pill" onclick="reset();"><i class="fas fa-history"></i> RESET</button>
-        <button class="bttn pill start-btn" onclick="countdown();"><i class="fas fa-play"></i> START</button>
-        <button class="bttn pill" onclick="setOptions();"><i class="fas fa-cog"></i> SET</button>
+
+        <button class="bttn pill"><i class="fas fa-history"></i> RESET</button>
+        <button class="bttn pill start-bttn"><i class="fas fa-play"></i> START</button>
+        <button class="bttn pill set-bttn"><i class="fas fa-cog"></i> SET</button>
+
       </div>
 
       <!-- START Modal window -->
@@ -67,23 +72,20 @@
             <div class="session-controls">
 
               <p>Time:</p>
-              <div class="session-buttons"><span class="add"></span><span class="time">25</span><span class="subtract"></span></div>
+              <div class="session-buttons"><div class="add"></div><span class="number time">25</span><div class="subtract"></div></div>
               <p>Short Break:</p>
-              <div class="session-buttons"><span class="add"></span><span class="break-short">5</span><span class="subtract"></span></div>
+              <div class="session-buttons"><div class="add"></div><span class="number break-short">5</span><div class="subtract"></div></div>
               <p>Long Break:</p>
-              <div class="session-buttons"><span class="add"></span><span class="break-long">15</span><span class="subtract"></span></div>
-              <!--
-              <p id="quantity" class="quantity"><i class="far fa-pause-circle"></i>1</p>
-              <p class="increase" onclick="increase();"><i class="fas fa-plus-circle"></i>+</p>
-              <p class="decrease" onclick="decrease();">-</p>
-              -->
+              <div class="session-buttons"><div class="add"></div><span class="number break-long">15</span><div class="subtract"></div></div>
 
             </div>
 
           </div>
 
-          <div class="submit-btn">
+          <div class="submit-bttn">
+
             <button class="bttn pill" type="submit">SUBMIT</button>
+
           </div>
 
         </div>
@@ -100,7 +102,7 @@
 
     <footer>
       
-        <p class="footer__link"><a href="https://brandonwallace.cc">brandon wallace</a> &copy; 2020</p>
+      <p class="footer__link"><a href="https://brandonwallace.cc">brandon wallace</a> &copy; 2020</p>
 
     </footer>
 
