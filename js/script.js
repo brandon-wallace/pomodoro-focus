@@ -1,13 +1,68 @@
 "use strict";
 
-const submitBttn = document.querySelector('.submit-btn button');
+let running = false;
+const startBttn = document.querySelector('.start-bttn');
+const setBttn = document.querySelector('.set-bttn');
+const submitBttn = document.querySelector('.submit-bttn button');
+const addBttn = document.querySelectorAll('.add');
+const substractBttn = document.querySelectorAll('.subtract');
 
+// SET
+const setOptions = () => {
+    console.log(`Opened modal`);
+    document.querySelector(".modal").style.display = "flex";
+}
+
+setBttn.addEventListener('click', setOptions);
+
+
+// CLOSE
 const closeModal = () => {
     console.log(`Closed modal`);
     document.querySelector(".modal").style.display = "none";
 }
 
 submitBttn.addEventListener('click', closeModal); 
+
+
+// BUTTONS
+for (let i of addBttn) {
+    i.addEventListener('click', function(event) {
+        console.log('item');
+        console.log(event.target.children);
+    })
+}
+
+
+/*
+addBttn.forEach(elem => {
+    elem.addEventListener('click', (event) => {
+        // document.querySelector('.number').textContext = 1;
+        let element = document.querySelector(event.target);
+        console.log(`This is a test.${element}`);
+    });
+});
+*/
+
+
+// START TIMER
+startBttn.addEventListener('click', () => {
+    console.log(`Clicked start.`);
+    startTimer();
+});
+
+
+const startTimer = () => {
+    startBttn.blur();
+    running = true;
+    console.log(`Running!!!!`);
+
+}
+
+
+
+
+/*
 
 let running = false;
 let sessions = 1;
@@ -47,10 +102,6 @@ const decrease = () => {
     document.getElementById('quantity').innerHTML = interval;
 }
 
-
-const setOptions = () => {
-    document.querySelector(".modal").style.display = "flex";
-}
 
 
 const modalClose = () => {
@@ -138,3 +189,5 @@ const reset = () => {
     titleText.innerHTML = `pomodoro focus`;
     startBtn.disabled = false;
 }
+
+*/
