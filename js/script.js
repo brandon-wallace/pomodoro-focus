@@ -1,11 +1,27 @@
 "use strict";
 
 let running = false;
+const resetBttn = document.querySelector('.reset-bttn');
 const startBttn = document.querySelector('.start-bttn');
 const setBttn = document.querySelector('.set-bttn');
 const submitBttn = document.querySelector('.submit-bttn button');
 const addBttn = document.querySelectorAll('.add');
-const substractBttn = document.querySelectorAll('.subtract');
+const subtractBttn = document.querySelectorAll('.subtract');
+
+
+//
+[resetBttn, setBttn, startBttn].forEach(elem => {
+    console.log(elem.classList);
+    if (elem.classList === 'reset-bttn') {
+        console.log(`Clicked Reset`);
+    }
+});
+
+// RESET
+const resetTimer = () => {
+    console.log(`Reset timer`);
+    document.querySelector('.timer__digits').textContent = '24:00';
+}
 
 // SET
 const setOptions = () => {
@@ -13,7 +29,7 @@ const setOptions = () => {
     document.querySelector(".modal").style.display = "flex";
 }
 
-setBttn.addEventListener('click', setOptions);
+//setBttn.addEventListener('click', setOptions);
 
 
 // CLOSE
@@ -22,34 +38,35 @@ const closeModal = () => {
     document.querySelector(".modal").style.display = "none";
 }
 
-submitBttn.addEventListener('click', closeModal); 
+//submitBttn.addEventListener('click', closeModal); 
 
 
-// BUTTONS
-for (let i of addBttn) {
-    i.addEventListener('click', function(event) {
-        console.log('item');
-        console.log(event.target.children);
-    })
+// INCREMENT/DECREMENT BUTTONS
+for (let elem of addBttn) {
+    elem.addEventListener('click', function(event) {
+        let digit = Number(event.currentTarget.nextElementSibling.textContent);
+        digit += 1;
+        event.currentTarget.nextElementSibling.textContent = digit;
+    });
 }
 
 
-/*
-addBttn.forEach(elem => {
-    elem.addEventListener('click', (event) => {
-        // document.querySelector('.number').textContext = 1;
-        let element = document.querySelector(event.target);
-        console.log(`This is a test.${element}`);
+for (let elem of subtractBttn) {
+    elem.addEventListener('click', function(event) {
+        let digit = Number(event.currentTarget.previousElementSibling.textContent);
+        digit -= 1;
+        event.currentTarget.previousElementSibling.textContent = digit;
     });
-});
-*/
+}
 
 
 // START TIMER
+/*
 startBttn.addEventListener('click', () => {
     console.log(`Clicked start.`);
     startTimer();
 });
+*/
 
 
 const startTimer = () => {
@@ -58,8 +75,6 @@ const startTimer = () => {
     console.log(`Running!!!!`);
 
 }
-
-
 
 
 /*
