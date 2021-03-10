@@ -9,36 +9,38 @@ const addBttn = document.querySelectorAll('.add');
 const subtractBttn = document.querySelectorAll('.subtract');
 
 
+const startTimer = () => {
+    startBttn.blur();
+    running = true;
+    console.log(`Running!!!!`);
+}
+
+
 //
-[resetBttn, setBttn, startBttn].forEach(elem => {
-    console.log(elem.classList);
-    if (elem.classList === 'reset-bttn') {
-        console.log(`Clicked Reset`);
-    }
-});
+const controls = [resetBttn, startBttn, setBttn];
 
-// RESET
-const resetTimer = () => {
-    console.log(`Reset timer`);
-    document.querySelector('.timer__digits').textContent = '24:00';
-}
-
-// SET
-const setOptions = () => {
-    console.log(`Opened modal`);
-    document.querySelector(".modal").style.display = "flex";
-}
-
-//setBttn.addEventListener('click', setOptions);
+for (let item of controls) {
+    item.addEventListener('click', function(event) {
+        console.log(item);
+        if (event.currentTarget.classList[2].search(/reset/i)) {
+            document.querySelector('.timer__digits').textContent = '24:00';
+        }
+        if (event.currentTarget.classList[2].includes('start-bttn')) {
+            startTimer();
+        }
+        if (event.currentTarget.classList[2].search(/set/i)) {
+            document.querySelector(".modal").style.display = "flex";
+        }
+    });
+}    
 
 
 // CLOSE
 const closeModal = () => {
-    console.log(`Closed modal`);
     document.querySelector(".modal").style.display = "none";
 }
 
-//submitBttn.addEventListener('click', closeModal); 
+submitBttn.addEventListener('click', closeModal); 
 
 
 // INCREMENT/DECREMENT BUTTONS
@@ -68,13 +70,6 @@ startBttn.addEventListener('click', () => {
 });
 */
 
-
-const startTimer = () => {
-    startBttn.blur();
-    running = true;
-    console.log(`Running!!!!`);
-
-}
 
 
 /*
