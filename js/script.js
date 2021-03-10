@@ -1,6 +1,8 @@
 "use strict";
 
 let running = false;
+let titleText = document.querySelector('title');
+const beep = new Audio('audio/404151_select-01.mp3');
 const resetBttn = document.querySelector('.reset-bttn');
 const startBttn = document.querySelector('.start-bttn');
 const setBttn = document.querySelector('.set-bttn');
@@ -9,11 +11,36 @@ const addBttn = document.querySelectorAll('.add');
 const subtractBttn = document.querySelectorAll('.subtract');
 
 
+const padZero = (number) => {
+    if (number < 10) {
+        return `0${number}`;
+    } else {
+        return `${number}`;
+    }
+}
+
+
 const startTimer = () => {
     startBttn.blur();
+    beep.play();
+    let min = 25;
+    let sec = 60;
     running = true;
-    console.log(`Running!!!!`);
-}
+    let digits = document.querySelector(".timer__digits");
+    let timeId = setInterval(() => {
+        if (running) {
+            startBttn.disabled = true;
+            if (sec === 60) {
+                min -= 1;
+            }
+            sec -= 1;
+            if (min >= 5) {
+                digits.innerHTML = `${padZero(min)}:${padZero(sec)}`;
+                titleText.innerHTML = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+            } 
+        } 
+    }, 1000);
+};
 
 
 //
