@@ -3,6 +3,16 @@
     src: url('../fonts/Monoid-Regular.ttf') format('truetype');
 }
 
+:root {
+    --light-background: linear-gradient(to bottom, #EEEEEE, #999999);
+    --text-color: #000000;
+    --dark-background: linear-gradient(to bottom, #444444, #EEEEEE);
+}
+
+.light {
+    --dark-background: var(--light-background, linear-gradient(to bottom, #EEEEEE, #999999));
+}
+
 html {
     line-height: 1.15;
       -webkit-text-size-adjust: 100%;
@@ -16,7 +26,7 @@ body {
 }
 
 body {
-    background-image: linear-gradient(to bottom, #444444, #EEE);
+    background-image: var(--dark-background, linear-gradient(to bottom, #444444, #EEEEEE));
 }
 
 header {
