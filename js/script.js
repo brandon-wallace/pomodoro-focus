@@ -41,12 +41,12 @@ const startTimer = () => {
             }
             sec -= 1;
             if (min >= shortBreak) {
-                digits.textContext = `${padZero(min)}:${padZero(sec)}`;
-                titleText.textContext = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+                digits.textContent = `${padZero(min)}:${padZero(sec)}`;
+                titleText.textContent = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
                 document.querySelector(".timer__text").textContent = `WORK`;
             } else {
-                digits.textContext = `${padZero(min)}:${padZero(sec)}`;
-                titleText.textContext = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
+                digits.textContent = `${padZero(min)}:${padZero(sec)}`;
+                titleText.textContent = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
                 document.querySelector(".timer__text").textContent = `BREAK`;
             }
             if (sec === 0) {
@@ -65,9 +65,8 @@ const startTimer = () => {
 // RESET TIMER
 const resetTimer = () => {
     running = false;
-    startBttn.disabled = false;
-    document.querySelector(".timer__text").textContext = `WORK`;
-    document.querySelector(".timer__digits").textContext = `25:00`;
+    document.querySelector(".timer__text").textContent = `WORK`;
+    document.querySelector(".timer__digits").textContent = `25:00`;
     titleText.innerHTML = `pomodoro focus`;
     startBttn.disabled = false;
 }
