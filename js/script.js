@@ -21,15 +21,14 @@ const controls = [resetBttn, startBttn, setBttn];
 
 for (let item of controls) {
     item.addEventListener('click', function(event) {
-        console.log(item);
-        if (event.currentTarget.classList[2].search(/reset/i)) {
-            document.querySelector('.timer__digits').textContent = '24:00';
-        }
-        if (event.currentTarget.classList[2].includes('start-bttn')) {
-            startTimer();
-        }
-        if (event.currentTarget.classList[2].search(/set/i)) {
+        if (event.currentTarget.classList[2] === 'set-bttn') {
             document.querySelector(".modal").style.display = "flex";
+        }
+        if (event.currentTarget.classList[2] === 'reset-bttn') {
+            document.querySelector('.timer__digits').textContent = '25:00';
+        }
+        if (event.currentTarget.classList[2] === 'start-bttn') {
+            startTimer();
         }
     });
 }    
@@ -62,22 +61,8 @@ for (let elem of subtractBttn) {
 }
 
 
-// START TIMER
-/*
-startBttn.addEventListener('click', () => {
-    console.log(`Clicked start.`);
-    startTimer();
-});
-*/
-
-
-
 /*
 
-let running = false;
-let sessions = 1;
-let titleText = document.querySelector("title");
-const startBtn = document.querySelector(".start-btn");
 const beep = new Audio('audio/404151_select-01.mp3');
 const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 
