@@ -3,7 +3,7 @@
 let running = false;
 let loop = false;
 let titleText = document.querySelector('title');
-const beep = new Audio('audio/404151_select-01.mp3');
+const beepSound = new Audio('audio/404151_select-01.mp3');
 const resetBttn = document.querySelector('.reset-bttn');
 const startBttn = document.querySelector('.start-bttn');
 const setBttn = document.querySelector('.set-bttn');
@@ -28,7 +28,7 @@ const padZero = (number) => {
 // START TIMER
 const startTimer = () => {
     startBttn.blur();
-    beep.play();
+    beepSound.play();
     let min = startTime;
     let sec = 60;
     running = true;
@@ -40,20 +40,18 @@ const startTimer = () => {
                 min -= 1;
             }
             sec -= 1;
-            if (min >= shortBreak) {
-                digits.textContent = `${padZero(min)}:${padZero(sec)}`;
-                titleText.textContent = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
-                document.querySelector(".timer__text").textContent = `WORK`;
-            } else {
-                digits.textContent = `${padZero(min)}:${padZero(sec)}`;
-                titleText.textContent = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
-                document.querySelector(".timer__text").textContent = `BREAK`;
-            }
+            digits.textContent = `${padZero(min)}:${padZero(sec)}`;
+            titleText.textContent = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
             if (sec === 0) {
                 if (min === 0) {
-                    beep.play();
-                    timesUpSound.play();
-                    clearInterval(timeId);
+                    min = min + shortBreak;
+                    shortBreak = 0;
+                    document.querySelector(".timer__text").textContent = `BREAK`;
+                    beepSound.play();
+                    if (min === 0 && sec === 0) {
+                        timesUpSound.play();
+                        clearInterval(timeId);
+                    }
                 }
                 sec = 60;
             }
@@ -99,7 +97,7 @@ const closeModal = () => {
     let longbreak = Number(document.querySelector('.break-long').textContent);
     longBreak = longbreak;
     document.querySelector(".modal").style.display = "none";
-    document.querySelector('.timer__digits').textContent = `${time}:00`;
+    document.querySelector('.timer__digits').textContent = `${padZero(time)}:00`;
 }
 
 submitBttn.addEventListener('click', closeModal); 
