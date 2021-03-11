@@ -32,7 +32,7 @@ const startTimer = () => {
     let min = startTime;
     let sec = 60;
     running = true;
-    let digits = document.querySelector(".timer__digits");
+    let digits = document.querySelector('.timer__digits');
     let timeId = setInterval(() => {
         if (running) {
             startBttn.disabled = true;
@@ -63,8 +63,8 @@ const startTimer = () => {
 // RESET TIMER
 const resetTimer = () => {
     running = false;
-    document.querySelector(".timer__text").textContent = `WORK`;
-    document.querySelector(".timer__digits").textContent = `25:00`;
+    document.querySelector('.timer__text').textContent = `WORK`;
+    document.querySelector('.timer__digits').textContent = `25:00`;
     titleText.innerHTML = `pomodoro focus`;
     startBttn.disabled = false;
 }
@@ -76,7 +76,7 @@ const controls = [resetBttn, startBttn, setBttn];
 for (let item of controls) {
     item.addEventListener('click', function(event) {
         if (event.currentTarget.classList[2] === 'set-bttn') {
-            document.querySelector(".modal").style.display = "flex";
+            document.querySelector('.modal').style.display = 'flex';
         }
         if (event.currentTarget.classList[2] === 'reset-bttn') {
             resetTimer();
@@ -96,7 +96,7 @@ const closeModal = () => {
     shortBreak = shortbreak;
     let longbreak = Number(document.querySelector('.break-long').textContent);
     longBreak = longbreak;
-    document.querySelector(".modal").style.display = "none";
+    document.querySelector('.modal').style.display = 'none';
     document.querySelector('.timer__digits').textContent = `${padZero(time)}:00`;
 }
 
