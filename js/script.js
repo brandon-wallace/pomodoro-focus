@@ -7,7 +7,7 @@ const beepSound = new Audio('audio/404151_select-01.mp3');
 const resetBttn = document.querySelector('.reset-bttn');
 const startBttn = document.querySelector('.start-bttn');
 const setBttn = document.querySelector('.set-bttn');
-const submitBttn = document.querySelector('.submit-bttn button');
+const submitBttn = document.querySelector('.submit__bttn button');
 const addBttn = document.querySelectorAll('.add');
 const subtractBttn = document.querySelectorAll('.subtract');
 const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
@@ -96,6 +96,7 @@ const closeModal = () => {
     shortBreak = shortbreak;
     let longbreak = Number(document.querySelector('.break-long').textContent);
     longBreak = longbreak;
+    loop = document.querySelector('.loop');
     document.querySelector('.modal').style.display = 'none';
     document.querySelector('.timer__digits').textContent = `${padZero(time)}:00`;
 }

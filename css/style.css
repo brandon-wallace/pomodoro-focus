@@ -165,7 +165,7 @@ footer {
     font-family: 'Monoid-Regular', monospace;
 }
 
-.modal-content {
+.modal__content {
     width: 96%;
     height: 96%;
     color: #FFFFFF;
@@ -192,11 +192,16 @@ input:checked {
     border: 5px solid #1E90FF;
 }
 
-.modal-text {
+.modal__text {
     color: #FFB80F;
+    display: inline-block;
 }
 
-.session-controls {
+.modal__close {
+    text-align: right;
+}
+
+.session__controls {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -206,13 +211,13 @@ input:checked {
     flex-direction: column;
 }
 
-.session-controls p {
+.session__controls p {
     margin: .5rem 0;
     color: #FFB80F;
     font-weight: bold;
 }
 
-.session-buttons {
+.session__buttons {
     width: 100%;
     display: flex;    
     max-width: 225px;
@@ -252,7 +257,7 @@ input:checked {
     background-position: -40px 0;
 }
 
-.submit-btn .bttn {
+.submit__btn .bttn {
     width: 100%;
     height: 50px;
     margin: .5em auto;
@@ -290,24 +295,16 @@ input:checked {
     .pill {
         font-size: 1.5rem;
     }
-    .session-buttons {
+    .session__buttons {
         max-width: 300px;
     }
 }
 
 @media only screen and (min-width: 700px) {
-    .session-buttons {
+    .session__buttons {
         max-width: 300px;
     }
     .bttn {
         margin: .5em 0;
-    }
-    .clock-digits {
-    font-size: 10rem;
-    text-shadow: 2px   2px  0 #FF5F0F,
-                -2px   2px  0 #FF5F0F,
-                 2px  -2px  0 #FF5F0F,
-                -2px  -2px  0 #FF5F0F,
-                 10px  10px 0 #F25A0E;
     }
 }
