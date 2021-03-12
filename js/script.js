@@ -27,6 +27,7 @@ const padZero = (number) => {
 
 // START TIMER
 const startTimer = () => {
+    let count = 4;
     startBttn.blur();
     beepSound.play();
     let min = startTime;
@@ -45,12 +46,17 @@ const startTimer = () => {
             if (sec === 0) {
                 if (min === 0) {
                     min = min + shortBreak;
-                    shortBreak = 0;
                     document.querySelector(".timer__text").textContent = `BREAK`;
                     beepSound.play();
                     if (min === 0 && sec === 0) {
                         timesUpSound.play();
-                        clearInterval(timeId);
+                        if (count === 0) {
+                            shortBreak = 0;
+                            min = longBreak;
+                            longBreak = 0;
+                            clearInterval(timeId);
+                        }
+                        count -= 1;
                     }
                 }
                 sec = 60;
@@ -108,6 +114,7 @@ submitBttn.addEventListener('click', closeModal);
 for (let elem of addBttn) {
     elem.addEventListener('click', function(event) {
         let digit = Number(event.currentTarget.nextElementSibling.textContent);
+        if (digit === 60) return;
         digit += 1;
         event.currentTarget.nextElementSibling.textContent = digit;
     });
@@ -117,6 +124,7 @@ for (let elem of addBttn) {
 for (let elem of subtractBttn) {
     elem.addEventListener('click', function(event) {
         let digit = Number(event.currentTarget.previousElementSibling.textContent);
+        if (digit === 1) return;
         digit -= 1;
         event.currentTarget.previousElementSibling.textContent = digit;
     });
