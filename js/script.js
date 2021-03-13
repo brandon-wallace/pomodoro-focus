@@ -95,6 +95,12 @@ for (let item of controls) {
 
 
 // CLOSE
+const closeBttn = document.querySelector('.modal__close');
+
+closeBttn.onclick = function() {
+    document.querySelector('.modal').style.display = 'none';
+}
+
 const closeModal = () => {
     let time = Number(document.querySelector('.time').textContent);
     startTime = time;

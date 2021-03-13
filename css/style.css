@@ -178,18 +178,9 @@ footer {
     background-image: url("../images/project-paper.png");
 }
 
-input {
-    width: 16px;
-    height: 16px;
-    outline: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #FFFFFF;
-}
-
-input:checked {
-    border: 5px solid #1E90FF;
+.modal__header {
+    display: flex;
+    justify-content: space-between;
 }
 
 .modal__text {
@@ -198,7 +189,16 @@ input:checked {
 }
 
 .modal__close {
+    color: #1E90FF;
+    cursor: pointer;
+    line-height: 64px;
     text-align: right;
+    font-size: 2.5rem;
+    display: inline-block;
+}
+
+.submit__bttn {
+    padding: 1em 0;
 }
 
 .session__controls {
