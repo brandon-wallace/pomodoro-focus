@@ -189,12 +189,14 @@ footer {
 }
 
 .modal__close {
+    border: 0;
     color: #1E90FF;
     cursor: pointer;
     line-height: 64px;
     text-align: right;
     font-size: 2.5rem;
     display: inline-block;
+    background-color: transparent;
 }
 
 .submit__bttn {
@@ -232,6 +234,7 @@ footer {
 }
 
 .add {
+    border: 0;
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -245,6 +248,7 @@ footer {
 }
 
 .subtract {
+    border: 0;
     width: 40px;
     height: 40px;
     cursor: pointer;
