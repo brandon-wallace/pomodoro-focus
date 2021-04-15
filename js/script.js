@@ -1,6 +1,10 @@
 "use strict";
 
+let seconds = 60;
+let workMinutes = 25;
+let breakMinutes = 5;
 let running = false;
+
 let titleText = document.querySelector('title');
 //const beepSound = new Audio('audio/404151_select-01.mp3');
 const resetBttn = document.querySelector('.reset-bttn');
@@ -24,33 +28,37 @@ const padZero = (number) => {
 }
 
 
-const startTimer = (minutes, timerType) => {
-    let seconds = 60;
-    if (timerType === 'work') {
-        minutes = 1;
-        document.querySelector('.timer__text').textContent = `WORK`;
-    } else if (timerType === 'break') {
-        minutes = 5;
-        document.querySelector('.timer__text').textContent = `BREAK`;
-    } else if (timerType === 'longbreak') {
-        minutes = 15;
-        document.querySelector('.timer__text').textContent = `BREAK`;
+const timerType = (timerDescription) => {
+    if (typeof timerDescription === 'function') console.log('Is a function')
+    if (timerDescription === 'work') {
+        return 1;
+    } else if (timerDescription === 'break') {
+        return 5;
+    } else {
+        return 15; // long break
     }
-    let timeId = setInterval(() => {
-        if (seconds === 60) {
-            minutes -= 1;
-        }
-        seconds -= 1;
-        document.querySelector('.timer__digits').textContent = `${padZero(minutes)}:${padZero(seconds)}`;
-        console.log(`Work: ${minutes} ${seconds}`);
-        if (seconds === 0) {
-            if (minutes === 0) {
-                clearInterval(timeId);
-                //callback();
+}
+
+
+const startTimer = (minutes) => {
+    if (running === true) {
+        let timerId = setTimeout(function workTime() {
+            console.log(seconds);
+            timerId = setTimeout(workTime, 1000); 
+            seconds--;
+            if (seconds === 0) {
+                clearTimeout(timerId);
+                let breakId = setTimeout(function breakTimer() {
+                    console.log(breakTime);
+                    breakId = setTimeout(breakTimer, 1000);
+                    breakTime--;
+                    if (breakTime === 0) {
+                        clearTimeout(breakId);
+                    }
+                }, 1000);
             }
-            seconds = 60;
-        }
-    }, 1000);
+        }, 1000);
+    }
 }
 
 
@@ -89,7 +97,7 @@ for (let item of controls) {
             resetTimer();
         }
         if (event.currentTarget.classList[2] === 'start-bttn') {
-            startTimer(1, 'work');
+            startTimer(1, timerType('work'));
         }
     });
 }    
