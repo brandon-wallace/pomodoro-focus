@@ -173,15 +173,20 @@ footer {
     max-width: 400px;
     padding: .5em 2em;
     border-radius: 14px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     border: 4px solid #1E90FF;
     background-color: #000000;
     background-image: url("../images/project-paper.png");
 }
 
 .modal__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .modal__text {
@@ -211,7 +216,10 @@ footer {
     display: flex;
     line-height: 30px;
     margin: 20px auto 0 auto;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .session__controls p {
@@ -222,9 +230,13 @@ footer {
 
 .session__buttons {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;    
     max-width: 225px;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin: 0 auto 1.2em auto;
 }
 
@@ -278,15 +290,26 @@ footer {
         text-align: center;
     }
     .timer {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: space-around;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
     }
     .control {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         max-width: unset;
-        align-items: center;
-        justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
     }
     .bttn {
         width: 32%;
