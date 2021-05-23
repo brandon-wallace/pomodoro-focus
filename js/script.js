@@ -69,29 +69,6 @@ const startBreak = (breaktime) => {
 }
 
 
-const main = async (worktime, breakShort, breakLong) => {
-    console.log('START')
-    startTimer(workTime);
-    startBreak(breakShort);
-    startTimer(workTime);
-    startBreak(breakShort);
-    startTimer(workTime);
-    startBreak(breakLong);
-    //for (let count = 3; count > 0; count--) {
-        //console.log(count);
-        //await startTimer(worktime);
-        //await startTimer.then();
-        //console.log(`Work time: ${worktime}`);
-        /*
-        if (count === 1) {
-            breakShort = breakLong;
-        }
-        */
-        //startBreak(breakShort);
-    console.log('END');
-}
-
-
 // RESET TIMER
 const resetTimer = () => {
     running = false;
@@ -107,31 +84,21 @@ const controls = [resetBttn, startBttn, setBttn];
 
 for (let item of controls) {
     item.addEventListener('click', function(event) {
-        if (event.currentTarget.classList[2] === 'set-bttn') {
-            document.querySelector('.modal').style.display = 'flex';
-        }
-        if (event.currentTarget.classList[2] === 'reset-bttn') {
-            resetTimer();
-        }
-        if (event.currentTarget.classList[2] === 'start-bttn') {
-            //startTimer(workTime);
-            //countdown(startTime, seconds);
-            main(workTime, breakShort, breakLong);
-            startBttn.disabled = true;
-            //startCountdown(workTime);
+        switch (event.currentTarget.classList[2]) {
+            case 'set-bttn':
+                document.querySelector('.modal').style.display = 'flex';
+                break;
+            case 'reset-bttn':
+                resetTimer();
+                break;
+            case 'start-bttn':
+                startBttn.disabled = true;
+                break;
+            default:
+                console.log('ERROR');
         }
     });
 }    
-
-
-// RESET TIMER
-const resetTimer = () => {
-    running = false;
-    document.querySelector('.timer__text').textContent = `WORK`;
-    document.querySelector('.timer__digits').textContent = `25:00`;
-    titleText.innerHTML = `pomodoro focus`;
-    startBttn.disabled = false;
-}
 
 
 // CLOSE
