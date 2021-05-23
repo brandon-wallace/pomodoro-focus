@@ -1,7 +1,6 @@
 "use strict";
 
 let running = false;
-let loop = false;
 //const seconds = 60;
 let titleText = document.querySelector('title');
 //const beepSound = new Audio('audio/404151_select-01.mp3');
@@ -12,7 +11,7 @@ const submitBttn = document.querySelector('.submit__bttn button');
 const addBttn = document.querySelectorAll('.add');
 const subtractBttn = document.querySelectorAll('.subtract');
 //const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
-let workTime = 25;
+let workTime = 1;
 let breakShort = 5;
 let breakLong = 15;
 
@@ -26,19 +25,23 @@ const padZero = (number) => {
 }
 
 
-const startCountdown = (minutes) => {
+const startTimer = (minutes) => {
     let seconds = 60;
     let timeId = setInterval(() => {
         if (seconds === 60) {
             minutes -= 1;
         }
         seconds -= 1;
+        document.querySelector('.timer__text').textContent = `WORK`;
         document.querySelector('.timer__digits').textContent = `${padZero(minutes)}:${padZero(seconds)}`;
         console.log(`Work: ${minutes} ${seconds}`);
         if (seconds === 0) {
             if (minutes === 0) {
+                console.log('TIME\'S UP');
                 clearInterval(timeId);
-            }
+                minutes = workTime;
+                seconds = 60;
+            } 
             seconds = 60;
         }
     }, 1000);
@@ -49,37 +52,41 @@ const startBreak = (breakTime) => {
     let seconds = 60;
     let breakId = setInterval(() => {
         if (seconds === 60) {
-            breaktime -= 1;
+            breakTime -= 1;
         }
         seconds -= 1;
         document.querySelector('.timer__text').textContent = `BREAK`;
-        console.log(`Break: ${min} ${sec}`);
+        document.querySelector('.timer__digits').textContent = `${padZero(breakTime)}:${padZero(seconds)}`;
+        console.log(`Break: ${breakTime} ${seconds}`);
         if (seconds === 0) {
             if (breakTime === 0) {
                 clearInterval(breakId);
-            }
+            } 
         }
     }, 1000);
 }
 
 
-const main = (workTime, breakShort, breakLong) => {
-    /*
-    console.log(`Work: ${workTime}`);
-    console.log(`Short Break: ${breakShort}`);
-    console.log(`Long Break: ${breakLong}`);
-    console.log(`\n\n`);
-    */
-    for (let count = 3; count > 0; count--) {
-        //countdown();
-        console.log(count);
-        console.log(`Work time: ${workTime}`);
-        if (count < 2) {
+const main = async (worktime, breakShort, breakLong) => {
+    console.log('START')
+    startTimer(workTime);
+    startBreak(breakShort);
+    startTimer(workTime);
+    startBreak(breakShort);
+    startTimer(workTime);
+    startBreak(breakLong);
+    //for (let count = 3; count > 0; count--) {
+        //console.log(count);
+        //await startTimer(worktime);
+        //await startTimer.then();
+        //console.log(`Work time: ${worktime}`);
+        /*
+        if (count === 1) {
             breakShort = breakLong;
         }
-        console.log(`Break time: ${breakShort}`);
-    }
-    console.log('END!');
+        */
+        //startBreak(breakShort);
+    console.log('END');
 }
 
 
@@ -105,10 +112,11 @@ for (let item of controls) {
             resetTimer();
         }
         if (event.currentTarget.classList[2] === 'start-bttn') {
-            //startTimer();
+            //startTimer(workTime);
             //countdown(startTime, seconds);
-            //main(workTime, breakShort, breakLong);
-            startCountdown(workTime);
+            main(workTime, breakShort, breakLong);
+            startBttn.disabled = true;
+            //startCountdown(workTime);
         }
     });
 }    
@@ -125,13 +133,6 @@ const closeModal = () => {
     workTime = Number(document.querySelector('.time').textContent);
     breakShort = Number(document.querySelector('.break-short').textContent);
     breakLong = Number(document.querySelector('.break-long').textContent);
-    //let time = Number(document.querySelector('.time').textContent);
-    //workTime = time;
-    //let shortbreak = Number(document.querySelector('.break-short').textContent);
-    //shortBreak = shortbreak;
-    //let longbreak = Number(document.querySelector('.break-long').textContent);
-    //longBreak = longbreak;
-    //loop = document.querySelector('.loop');
     document.querySelector('.modal').style.display = 'none';
     document.querySelector('.timer__digits').textContent = `${padZero(workTime)}:00`;
 }
