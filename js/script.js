@@ -1,7 +1,9 @@
 "use strict";
 
+let seconds = 60;
+let workMinutes = 25;
+let breakMinutes = 5;
 let running = false;
-//const seconds = 60;
 let titleText = document.querySelector('title');
 //const beepSound = new Audio('audio/404151_select-01.mp3');
 const resetBttn = document.querySelector('.reset-bttn');
@@ -48,7 +50,7 @@ const startTimer = (minutes) => {
 }
 
 
-const startBreak = (breakTime) => {
+const startBreak = (breaktime) => {
     let seconds = 60;
     let breakId = setInterval(() => {
         if (seconds === 60) {
@@ -122,6 +124,16 @@ for (let item of controls) {
 }    
 
 
+// RESET TIMER
+const resetTimer = () => {
+    running = false;
+    document.querySelector('.timer__text').textContent = `WORK`;
+    document.querySelector('.timer__digits').textContent = `25:00`;
+    titleText.innerHTML = `pomodoro focus`;
+    startBttn.disabled = false;
+}
+
+
 // CLOSE
 const closeBttn = document.querySelector('.modal__close');
 
@@ -159,60 +171,3 @@ for (let elem of subtractBttn) {
         event.currentTarget.previousElementSibling.textContent = digit;
     });
 }
-
-/*
-const longBreak = (breakTime) => {
-    let seconds = 60;
-    let breakId = setInterval(() => {
-        if (seconds === 60) {
-            breatTime -= 1;
-        }
-        seconds -= 1;
-        console.log(`Break: ${min} ${sec}`);
-    }, 1000);
-}
-*/
-
-
-// START TIMER
-/*
-const startTimer = (longtime, shorttime, breaktime) => {
-    //let count = 3;
-    //startBttn.blur();
-    //beepSound.play();
-    let min = startTime;
-    let sec = 60;
-    running = true;
-    let digits = document.querySelector('.timer__digits');
-    let timeId = setInterval(() => {
-        if (running) {
-            startBttn.disabled = true;
-            if (sec === 60) {
-                min -= 1;
-            }
-            sec -= 1;
-            console.log(`${min} ${sec}`);
-            digits.textContent = `${padZero(min)}:${padZero(sec)}`;
-            titleText.textContent = `${padZero(min)}:${padZero(sec)} pomodoro focus`;
-            if (sec === 0) {
-                if (min === 0) {
-                    min = min + shortBreak;
-                    document.querySelector(".timer__text").textContent = `BREAK`;
-                    //beepSound.play();
-                    if (min === 0 && sec === 0) {
-                        //timesUpSound.play();
-                        if (count === 0) {
-                            shortBreak = 0;
-                            min = longBreak;
-                            longBreak = 0;
-                            clearInterval(timeId);
-                        }
-                        count -= 1;
-                    }
-                }
-                sec = 60;
-            }
-        } 
-    }, 1000);
-};
-*/
