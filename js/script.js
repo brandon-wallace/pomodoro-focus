@@ -27,6 +27,31 @@ const padZero = (number) => {
 }
 
 
+class Timer {
+    constructor(workTime=25, breakTime=5, longBreakTime=15) {
+        this.worTime = workTime;
+        this.breakTime = breakTime;
+        this.longBreakTime = longBreakTime;
+    };
+
+    total() {
+        console.log((this.workTime * 3) + (this.breakTime * 3) + this.longbreakTime);
+        return (this.workTime * 3) + (this.breakTime * 3) + this.longbreakTime;
+    };
+
+    calculateTime() {
+        this.min = this.worktime;
+        this.hours = (this.min / 60);        
+        this.rounded_hours = Math.floor(this.hours);
+        this.minutes = (this.hours - this.rounded_hours) * 60;
+        this.rounded_minutes = Math.floor(this.minutes);
+        return `${this.rounded_hours} ${this.rounded_minutes}`;
+    };
+};
+
+let timer = new Timer(25, 5, 15);
+
+
 const startTimer = (minutes) => {
     let seconds = 60;
     let timeId = setInterval(() => {
@@ -45,25 +70,6 @@ const startTimer = (minutes) => {
                 seconds = 60;
             } 
             seconds = 60;
-        }
-    }, 1000);
-}
-
-
-const startBreak = (breaktime) => {
-    let seconds = 60;
-    let breakId = setInterval(() => {
-        if (seconds === 60) {
-            breakTime -= 1;
-        }
-        seconds -= 1;
-        document.querySelector('.timer__text').textContent = `BREAK`;
-        document.querySelector('.timer__digits').textContent = `${padZero(breakTime)}:${padZero(seconds)}`;
-        console.log(`Break: ${breakTime} ${seconds}`);
-        if (seconds === 0) {
-            if (breakTime === 0) {
-                clearInterval(breakId);
-            } 
         }
     }, 1000);
 }
