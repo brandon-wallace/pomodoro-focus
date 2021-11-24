@@ -1,33 +1,56 @@
 "use strict";
 
-let seconds = 60;
-let workMinutes = 25;
+let sec = 60;
+let min = 2;
 let breakMinutes = 5;
 let running = false;
+let mode = 'work';
 
 let titleText = document.querySelector('title');
+const ctrlBttns = document.querySelectorAll('.ctrl-bttn');
 //const beepSound = new Audio('audio/404151_select-01.mp3');
-const resetBttn = document.querySelector('.reset-bttn');
-const startBttn = document.querySelector('.start-bttn');
-const setBttn = document.querySelector('.set-bttn');
+//const resetBttn = document.querySelector('.reset-bttn');
+//const startBttn = document.querySelector('.start-bttn');
+//const setBttn = document.querySelector('.set-bttn');
+const startBttn = document.querySelector('.bttn-start');
 const submitBttn = document.querySelector('.submit__bttn button');
 const addBttn = document.querySelectorAll('.add');
 const subtractBttn = document.querySelectorAll('.subtract');
 //const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
-let workTime = 1;
-let breakShort = 5;
-let breakLong = 15;
 
 
-const padZero = (number) => {
-    if (number < 10) {
-        return `0${number}`;
-    } else {
-        return `${number}`;
-    }
+const action = (event) => {
+    if (event.currentTarget.matches('.start')) { 
+        //console.log('STARTING'); 
+        countdown();
+        document.querySelector('.start').disabled = true;
+    } else if (event.currentTarget.matches('.reset')) {
+        console.log('RESETTING'); 
+    } else if (event.currentTarget.matches('.settings')) {
+        //console.log('CHANGING SETTINGS'); 
+    };
 }
 
+ctrlBttns.forEach(bttn => {
+    bttn.addEventListener('click', action);
+});
 
+const countdown = () => {
+    sec = sec - 1;
+    document.querySelector('.minutes').textContent = min.toString().padStart(2, '0');
+    document.querySelector('.seconds').textContent = sec.toString().padStart(2, '0');
+    titleText.textContent = `${min}:${sec}`;
+    if (min === 0 && sec === 0) return;
+    if (sec == 0) {
+        min = min - 1;
+        sec = 60
+    }
+    setTimeout(() => {
+        countdown();
+    }, 1000);
+}
+
+/*
 const timerType = (timerDescription) => {
     if (typeof timerDescription === 'function') console.log('Is a function')
     if (timerDescription === 'work') {
@@ -150,3 +173,4 @@ for (let elem of subtractBttn) {
         event.currentTarget.previousElementSibling.textContent = digit;
     });
 }
+*/
