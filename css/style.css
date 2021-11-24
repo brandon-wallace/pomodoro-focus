@@ -89,10 +89,11 @@ footer {
 
 .timer__digits {
     color: #FFB80F;
-    display: block;
+    display: flex;
     font-size: 80px;
     font-size: 5rem;
     padding: 1rem 0;
+    justify-content: center;
 }
 
 .clock-text,
