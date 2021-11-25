@@ -6,6 +6,10 @@ let breakMinutes = 5;
 let running = false;
 let mode = 'work';
 
+let workTime;
+let breakShort;
+let breakLong;
+
 let titleText = document.querySelector('title');
 const ctrlBttns = document.querySelectorAll('.ctrl-bttn');
 //const beepSound = new Audio('audio/404151_select-01.mp3');
@@ -13,7 +17,7 @@ const ctrlBttns = document.querySelectorAll('.ctrl-bttn');
 //const startBttn = document.querySelector('.start-bttn');
 //const setBttn = document.querySelector('.set-bttn');
 const startBttn = document.querySelector('.bttn-start');
-const submitBttn = document.querySelector('.submit__bttn button');
+const submitBttn = document.querySelector('.submit__bttn');
 const addBttn = document.querySelectorAll('.add');
 const subtractBttn = document.querySelectorAll('.subtract');
 //const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
@@ -83,10 +87,29 @@ const closeModal = () => {
     breakShort = Number(document.querySelector('.break-short').textContent);
     breakLong = Number(document.querySelector('.break-long').textContent);
     document.querySelector('.modal').style.display = 'none';
-    document.querySelector('.timer__digits').textContent = `${padZero(workTime)}:00`;
+    document.querySelector('.minutes').textContent = `${padZero(workTime)}`;
 }
 
 submitBttn.addEventListener('click', closeModal); 
+
+for (let elem of addBttn) {
+    elem.addEventListener('click', function(event) {
+        let digit = Number(event.currentTarget.nextElementSibling.textContent);
+        if (digit === 60) return;
+        digit += 1;
+        event.currentTarget.nextElementSibling.textContent = digit;
+    });
+}
+
+
+for (let elem of subtractBttn) {
+    elem.addEventListener('click', function(event) {
+        let digit = Number(event.currentTarget.previousElementSibling.textContent);
+        if (digit === 1) return;
+        digit -= 1;
+        event.currentTarget.previousElementSibling.textContent = digit;
+    });
+}
 
 /*
 const timerType = (timerDescription) => {
@@ -97,28 +120,6 @@ const timerType = (timerDescription) => {
         return 5;
     } else {
         return 15; // long break
-    }
-}
-
-
-const startTimer = (minutes) => {
-    if (running === true) {
-        let timerId = setTimeout(function workTime() {
-            console.log(seconds);
-            timerId = setTimeout(workTime, 1000); 
-            seconds--;
-            if (seconds === 0) {
-                clearTimeout(timerId);
-                let breakId = setTimeout(function breakTimer() {
-                    console.log(breakTime);
-                    breakId = setTimeout(breakTimer, 1000);
-                    breakTime--;
-                    if (breakTime === 0) {
-                        clearTimeout(breakId);
-                    }
-                }, 1000);
-            }
-        }, 1000);
     }
 }
 
@@ -190,25 +191,4 @@ const closeModal = () => {
 }
 
 submitBttn.addEventListener('click', closeModal); 
-
-
-// INCREMENT/DECREMENT BUTTONS
-for (let elem of addBttn) {
-    elem.addEventListener('click', function(event) {
-        let digit = Number(event.currentTarget.nextElementSibling.textContent);
-        if (digit === 60) return;
-        digit += 1;
-        event.currentTarget.nextElementSibling.textContent = digit;
-    });
-}
-
-
-for (let elem of subtractBttn) {
-    elem.addEventListener('click', function(event) {
-        let digit = Number(event.currentTarget.previousElementSibling.textContent);
-        if (digit === 1) return;
-        digit -= 1;
-        event.currentTarget.previousElementSibling.textContent = digit;
-    });
-}
 */
