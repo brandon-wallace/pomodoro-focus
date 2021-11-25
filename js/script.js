@@ -21,13 +21,16 @@ const subtractBttn = document.querySelectorAll('.subtract');
 
 const action = (event) => {
     if (event.currentTarget.matches('.start')) { 
-        //console.log('STARTING'); 
+        running = true;
         countdown();
         document.querySelector('.start').disabled = true;
     } else if (event.currentTarget.matches('.reset')) {
-        console.log('RESETTING'); 
+        running = false;
+        document.querySelector('.start').disabled = false;
+        resetTimer();
     } else if (event.currentTarget.matches('.settings')) {
-        //console.log('CHANGING SETTINGS'); 
+        document.querySelector('.modal').style.display = 'flex';
+        //console.log('CHANGE SETTINGS'); 
     };
 }
 
@@ -35,20 +38,55 @@ ctrlBttns.forEach(bttn => {
     bttn.addEventListener('click', action);
 });
 
-const countdown = () => {
-    sec = sec - 1;
-    document.querySelector('.minutes').textContent = min.toString().padStart(2, '0');
-    document.querySelector('.seconds').textContent = sec.toString().padStart(2, '0');
-    titleText.textContent = `${min}:${sec}`;
-    if (min === 0 && sec === 0) return;
-    if (sec == 0) {
-        min = min - 1;
-        sec = 60
-    }
-    setTimeout(() => {
-        countdown();
-    }, 1000);
+const padZero = (number) => {
+    return number.toString().padStart(2, '0');
 }
+
+const countdown = () => {
+    if (running === true) {
+        sec = sec - 1;
+        document.querySelector('.minutes').textContent = padZero(min);
+        document.querySelector('.seconds').textContent = padZero(sec);
+        titleText.textContent = `${padZero(min)}:${padZero(sec)} Pomodoro Focus`;
+        if (min === 0 && sec === 0) return;
+        if (sec == 0) {
+            min = min - 1;
+            sec = 60
+        }
+        if (min <= 5) {
+            document.querySelectorAll('.timer__label')[1].classList.add('active');
+            document.querySelectorAll('.timer__label')[0].classList.remove('active');
+        }
+        setTimeout(() => {
+            countdown();
+        }, 1000);
+    }
+}
+
+const resetTimer = () => {
+    document.querySelector('title').textContent = `Pomodoro Focus`;
+    document.querySelectorAll('.timer__label')[0].classList.add('active');
+    document.querySelectorAll('.timer__label')[1].classList.remove('active');
+    document.querySelector('.minutes').textContent = `00`;
+    document.querySelector('.seconds').textContent = `00`;
+    titleText.innerHTML = `Pomodoro Focus`;
+}
+
+const closeBttn = document.querySelector('.modal__close');
+
+closeBttn.onclick = function() {
+    document.querySelector('.modal').style.display = 'none';
+}
+
+const closeModal = () => {
+    workTime = Number(document.querySelector('.time').textContent);
+    breakShort = Number(document.querySelector('.break-short').textContent);
+    breakLong = Number(document.querySelector('.break-long').textContent);
+    document.querySelector('.modal').style.display = 'none';
+    document.querySelector('.timer__digits').textContent = `${padZero(workTime)}:00`;
+}
+
+submitBttn.addEventListener('click', closeModal); 
 
 /*
 const timerType = (timerDescription) => {
