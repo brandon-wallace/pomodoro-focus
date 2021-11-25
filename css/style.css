@@ -117,7 +117,7 @@ footer {
 
 .control {
     display: flex;
-    max-width: 400px;
+    max-width: 430px;
     padding: .5em 1em;
     margin: .5rem auto;
     justify-content: space-between;
@@ -129,14 +129,15 @@ footer {
     display: block;
     color: #1E90FF;
     font-size: 24px;
-    font-size: 1.5rem;
+    font-size: 3rem;
     overflow: visible;
     margin-bottom: 8px;
     letter-spacing: 2px;
     text-transform: none;
     font-family: inherit;
-    border: 4px solid #1E90FF;
-    background-color: #171717;
+    border: 0;
+    cursor: pointer;
+    background-color: #060606;
       -webkit-appearance: button;
 }
 
@@ -299,6 +300,7 @@ footer {
 }
 
 .pill {
+    font-size: 3rem;
     border-radius: 50%;
 }
 
@@ -332,13 +334,13 @@ footer {
         width: 32%;
     }
     .pill {
-        font-size: 1.1rem;
+        font-size: 3rem;
     }
 }
 
 @media only screen and (min-width: 400px) {
     .pill {
-        font-size: 1.5rem;
+        font-size: 3rem;
     }
     .session__buttons {
         max-width: 300px;
