@@ -1,6 +1,6 @@
 # Pomodoro Focus
 
-# A simple online pomodoro timer for mobile and desktop.
+# A online pomodoro timer for mobile and desktop.
 
 # https://pomodorofocus.netlify.app/
 
@@ -8,13 +8,12 @@
 
 * Mobile First
 * Responsive Design
-* Javascript ES6
-* CSS3
-* HTML5
+* Javascript
+* CSS
+* HTML
 
 ![screenshot1](images/screenshot1.png)
 ![screenshot2](images/screenshot2.png)
-![screenshot3](images/screenshot3.png)
 
 ## License:
 
