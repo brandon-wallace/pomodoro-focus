@@ -6,26 +6,25 @@ let breakMinutes = 5;
 let running = false;
 let mode = 'work';
 
+let totalTime;
 let workTime;
 let breakShort;
 let breakLong;
 
 let titleText = document.querySelector('title');
 const ctrlBttns = document.querySelectorAll('.ctrl-bttn');
-//const beepSound = new Audio('audio/404151_select-01.mp3');
-//const resetBttn = document.querySelector('.reset-bttn');
-//const startBttn = document.querySelector('.start-bttn');
-//const setBttn = document.querySelector('.set-bttn');
+const beepSound = new Audio('audio/404151_select-01.mp3');
 const startBttn = document.querySelector('.bttn-start');
 const submitBttn = document.querySelector('.submit__bttn');
 const addBttn = document.querySelectorAll('.add');
 const subtractBttn = document.querySelectorAll('.subtract');
-//const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
+const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 
 
 const action = (event) => {
-    if (event.currentTarget.matches('.start')) { 
+    if (event.currentTarget.matches('.start')) {
         running = true;
+        beepSound.play()
         countdown();
         document.querySelector('.start').disabled = true;
     } else if (event.currentTarget.matches('.reset')) {
@@ -34,7 +33,6 @@ const action = (event) => {
         resetTimer();
     } else if (event.currentTarget.matches('.settings')) {
         document.querySelector('.modal').style.display = 'flex';
-        //console.log('CHANGE SETTINGS'); 
     };
 }
 
@@ -52,26 +50,37 @@ const countdown = () => {
         document.querySelector('.minutes').textContent = padZero(min);
         document.querySelector('.seconds').textContent = padZero(sec);
         titleText.textContent = `${padZero(min)}:${padZero(sec)} Pomodoro Focus`;
-        if (min === 0 && sec === 0) return;
+        if (mode === 'break') {
+            document.querySelectorAll('.timer__label')[1].classList.add('active');
+            document.querySelectorAll('.timer__label')[0].classList.remove('active');
+            if (min === 0 && sec === 0) {
+                timesUpSound.play();
+                return;
+            }
+        }
         if (sec == 0) {
+            if (min === 0 && mode === 'work') {
+                mode = 'break';
+                beepSound.play();
+                min = breakShort;
+            }
             min = min - 1;
             sec = 60
         }
-        if (min <= 5) {
-            document.querySelectorAll('.timer__label')[1].classList.add('active');
-            document.querySelectorAll('.timer__label')[0].classList.remove('active');
-        }
         setTimeout(() => {
             countdown();
-        }, 1000);
+        }, 50);
     }
 }
 
 const resetTimer = () => {
+    mode = 'work';
+    sec = 60;
+    min = 25;
     document.querySelector('title').textContent = `Pomodoro Focus`;
     document.querySelectorAll('.timer__label')[0].classList.add('active');
     document.querySelectorAll('.timer__label')[1].classList.remove('active');
-    document.querySelector('.minutes').textContent = `00`;
+    document.querySelector('.minutes').textContent = `25`;
     document.querySelector('.seconds').textContent = `00`;
     titleText.innerHTML = `Pomodoro Focus`;
 }
@@ -85,12 +94,15 @@ closeBttn.onclick = function() {
 const closeModal = () => {
     workTime = Number(document.querySelector('.time').textContent);
     breakShort = Number(document.querySelector('.break-short').textContent);
+    totalTime = workTime + breakShort;
+    min = workTime;
+    document.querySelector('.start').disabled = false;
     breakLong = Number(document.querySelector('.break-long').textContent);
     document.querySelector('.modal').style.display = 'none';
-    document.querySelector('.minutes').textContent = `${padZero(workTime)}`;
+    document.querySelector('.minutes').textContent = `${padZero(totalTime - breakShort)}`;
 }
 
-submitBttn.addEventListener('click', closeModal); 
+submitBttn.addEventListener('click', closeModal);
 
 for (let elem of addBttn) {
     elem.addEventListener('click', function(event) {
@@ -162,7 +174,7 @@ for (let item of controls) {
             startTimer(1, timerType('work'));
         }
     });
-}    
+}
 
 
 // RESET TIMER
@@ -190,5 +202,5 @@ const closeModal = () => {
     document.querySelector('.timer__digits').textContent = `${padZero(workTime)}:00`;
 }
 
-submitBttn.addEventListener('click', closeModal); 
+submitBttn.addEventListener('click', closeModal);
 */
