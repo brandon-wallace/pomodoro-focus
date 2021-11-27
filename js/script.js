@@ -2,7 +2,6 @@
 
 let sec = 60;
 let min = 2;
-let breakMinutes = 5;
 let running = false;
 let mode = 'work';
 
@@ -13,15 +12,15 @@ let breakLong;
 
 let titleText = document.querySelector('title');
 const ctrlBttns = document.querySelectorAll('.ctrl-bttn');
-const beepSound = new Audio('audio/404151_select-01.mp3');
 const startBttn = document.querySelector('.bttn-start');
 const submitBttn = document.querySelector('.submit__bttn');
 const addBttn = document.querySelectorAll('.add');
 const subtractBttn = document.querySelectorAll('.subtract');
+const beepSound = new Audio('audio/404151_select-01.mp3');
 const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 
 
-const action = (event) => {
+const buttonAction = (event) => {
     if (event.currentTarget.matches('.start')) {
         running = true;
         beepSound.play()
@@ -37,7 +36,7 @@ const action = (event) => {
 }
 
 ctrlBttns.forEach(bttn => {
-    bttn.addEventListener('click', action);
+    bttn.addEventListener('click', buttonAction);
 });
 
 const padZero = (number) => {
@@ -94,12 +93,11 @@ closeBttn.onclick = function() {
 const closeModal = () => {
     workTime = Number(document.querySelector('.time').textContent);
     breakShort = Number(document.querySelector('.break-short').textContent);
-    totalTime = workTime + breakShort;
     min = workTime;
     document.querySelector('.start').disabled = false;
     breakLong = Number(document.querySelector('.break-long').textContent);
     document.querySelector('.modal').style.display = 'none';
-    document.querySelector('.minutes').textContent = `${padZero(totalTime - breakShort)}`;
+    document.querySelector('.minutes').textContent = `${padZero(workTime)}`;
 }
 
 submitBttn.addEventListener('click', closeModal);
@@ -113,7 +111,6 @@ for (let elem of addBttn) {
     });
 }
 
-
 for (let elem of subtractBttn) {
     elem.addEventListener('click', function(event) {
         let digit = Number(event.currentTarget.previousElementSibling.textContent);
@@ -122,85 +119,3 @@ for (let elem of subtractBttn) {
         event.currentTarget.previousElementSibling.textContent = digit;
     });
 }
-
-/*
-const timerType = (timerDescription) => {
-    if (typeof timerDescription === 'function') console.log('Is a function')
-    if (timerDescription === 'work') {
-        return 1;
-    } else if (timerDescription === 'break') {
-        return 5;
-    } else {
-        return 15; // long break
-    }
-}
-
-
-const startBreak = (breaktime) => {
-    let seconds = 60;
-    let breakId = setInterval(() => {
-        if (seconds === 60) {
-            breaktime -= 1;
-        }
-        seconds -= 1;
-        document.querySelector('.timer__text').textContent = `BREAK`;
-        console.log(`Break: ${breaktime} ${seconds}`);
-        if (seconds === 0) {
-            if (breakTime === 0) {
-                clearInterval(breakId);
-            }
-        }
-    }, 1000);
-}
-
-
-const main = (callback) => {
-    //startTimer(workTime, startBreak(breakShort));
-}
-
-
-// CONTROL BUTTONS
-const controls = [resetBttn, startBttn, setBttn];
-
-for (let item of controls) {
-    item.addEventListener('click', function(event) {
-        if (event.currentTarget.classList[2] === 'set-bttn') {
-            document.querySelector('.modal').style.display = 'flex';
-        }
-        if (event.currentTarget.classList[2] === 'reset-bttn') {
-            resetTimer();
-        }
-        if (event.currentTarget.classList[2] === 'start-bttn') {
-            startTimer(1, timerType('work'));
-        }
-    });
-}
-
-
-// RESET TIMER
-const resetTimer = () => {
-    running = false;
-    document.querySelector('.timer__text').textContent = `WORK`;
-    document.querySelector('.timer__digits').textContent = `25:00`;
-    titleText.innerHTML = `pomodoro focus`;
-    startBttn.disabled = false;
-}
-
-
-// CLOSE
-const closeBttn = document.querySelector('.modal__close');
-
-closeBttn.onclick = function() {
-    document.querySelector('.modal').style.display = 'none';
-}
-
-const closeModal = () => {
-    workTime = Number(document.querySelector('.time').textContent);
-    breakShort = Number(document.querySelector('.break-short').textContent);
-    breakLong = Number(document.querySelector('.break-long').textContent);
-    document.querySelector('.modal').style.display = 'none';
-    document.querySelector('.timer__digits').textContent = `${padZero(workTime)}:00`;
-}
-
-submitBttn.addEventListener('click', closeModal);
-*/
