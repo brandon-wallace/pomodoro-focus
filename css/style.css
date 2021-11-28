@@ -69,7 +69,6 @@ footer {
     padding: .5rem;
     max-width: 530px;
     border-radius: 10px;
-    border: 4px solid #1E90FF;
     background-color: hsla(000, 000%, 000%, 1);
 }
 
@@ -124,13 +123,11 @@ footer {
 }
 
 .bttn {
-    width: 60px;
-    height: 60px;
+    width: 100%;
     margin: .5em 0;
     display: block;
     color: #1E90FF;
-    font-size: 24px;
-    font-size: 3rem;
+    font-size: 2rem;
     overflow: visible;
     letter-spacing: 2px;
     text-transform: none;
@@ -139,6 +136,14 @@ footer {
     cursor: pointer;
     background-color: #060606;
       -webkit-appearance: button;
+}
+
+.ctrl-bttn {
+    width: 60px;
+    height: 60px;
+    color: #1E90FF;
+    font-size: 3rem;
+    background-color: #060606;
 }
 
 .footer__link {
@@ -189,7 +194,7 @@ footer {
     border-radius: 10px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    border: 4px solid #1E90FF;
+    border: 1px solid #1E90FF;
     background-color: #000000;
     background-image: url("../images/project-paper.png");
 }
@@ -198,6 +203,7 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -220,7 +226,11 @@ footer {
 }
 
 .submit__bttn {
-    padding: 1em 0;
+    color: #FFB80F;
+    padding: .5em 0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    /*border: 2px solid #FFB80F;*/
 }
 
 .session__controls {
@@ -296,7 +306,7 @@ footer {
 }
 
 .active {
-    border: 2px solid #FFB80F;
+    border: 2px solid #1E90FF;
 }
 
 .pill {
