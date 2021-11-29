@@ -2,8 +2,6 @@
 
 # A online pomodoro timer for mobile and desktop.
 
-# https://pomodorofocus.netlify.app/
-
 # Features:
 
 * Mobile First
