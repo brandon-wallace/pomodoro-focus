@@ -187,7 +187,6 @@ footer {
 
 .modal__content {
     width: 92%;
-    height: 94%;
     color: #FFFFFF;
     max-width: 400px;
     padding: .5em 2em;
@@ -246,9 +245,11 @@ footer {
             flex-direction: column;
 }
 
-.session__controls p {
-    margin: .5rem 0;
+.session__controls p,
+.session__controls label {
     color: #FFB80F;
+    display: block;
+    margin: .5rem 0;
     font-weight: bold;
 }
 
@@ -262,6 +263,14 @@ footer {
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin: 0 auto 1.2em auto;
+}
+
+.session-number {
+    width: 80%;
+}
+
+.session-number + span {
+    font-size: 2rem;
 }
 
 .time,

@@ -4,11 +4,12 @@ let sec = 60;
 let min = 2;
 let running = false;
 let mode = 'work';
+let session = 3;
 
 let totalTime;
 let workTime;
-let breakShort;
-let breakLong;
+let breakShort = 5;
+let breakLong = 15;
 
 let titleText = document.querySelector('title');
 const ctrlBttns = document.querySelectorAll('.ctrl-bttn');
@@ -23,8 +24,9 @@ const timesUpSound = new Audio('audio/216090_bad-beep-incorrect.mp3');
 const buttonAction = (event) => {
     if (event.currentTarget.matches('.start')) {
         running = true;
-        beepSound.play()
-        countdown();
+        beepSound.play();
+        startTimer(session);
+        //countdown();
         document.querySelector('.start').disabled = true;
     } else if (event.currentTarget.matches('.reset')) {
         running = false;
@@ -43,7 +45,15 @@ const padZero = (number) => {
     return number.toString().padStart(2, '0');
 }
 
+const startTimer = async (sess) => {
+    const count = sess;
+    for (let i = count; i > 0; i--) {
+        await countdown();
+    }
+}
+
 const countdown = () => {
+    return new Promise((resolve, reject) => {
     if (running === true) {
         sec = sec - 1;
         document.querySelector('.minutes').textContent = padZero(min);
@@ -53,7 +63,7 @@ const countdown = () => {
             document.querySelectorAll('.timer__label')[1].classList.add('active');
             document.querySelectorAll('.timer__label')[0].classList.remove('active');
             if (min === 0 && sec === 0) {
-                timesUpSound.play();
+                resetTimer();
                 return;
             }
         }
@@ -64,22 +74,24 @@ const countdown = () => {
                 min = breakShort;
             }
             min = min - 1;
-            sec = 60
+            sec = 60;
         }
-        setTimeout(() => {
-            countdown();
-        }, 50);
+            setTimeout(() => {
+                countdown();
+                resolve();
+            }, 1000);
     }
+        })
 }
 
 const resetTimer = () => {
     mode = 'work';
     sec = 60;
-    min = 25;
+    min = 2;
     document.querySelector('title').textContent = `Pomodoro Focus`;
     document.querySelectorAll('.timer__label')[0].classList.add('active');
     document.querySelectorAll('.timer__label')[1].classList.remove('active');
-    document.querySelector('.minutes').textContent = `25`;
+    document.querySelector('.minutes').textContent = `2`;
     document.querySelector('.seconds').textContent = `00`;
     titleText.innerHTML = `Pomodoro Focus`;
 }
@@ -93,7 +105,7 @@ closeBttn.onclick = function() {
 const closeModal = () => {
     workTime = Number(document.querySelector('.time').textContent);
     breakShort = Number(document.querySelector('.break-short').textContent);
-    min = workTime;
+    min = workTime - 1;
     document.querySelector('.start').disabled = false;
     breakLong = Number(document.querySelector('.break-long').textContent);
     document.querySelector('.modal').style.display = 'none';
@@ -119,3 +131,11 @@ for (let elem of subtractBttn) {
         event.currentTarget.previousElementSibling.textContent = digit;
     });
 }
+
+const rangeSlider = document.querySelector('.session-number');
+let rangeOutput = document.querySelector('.range__output');
+rangeOutput.textContent = rangeSlider.value;
+
+rangeSlider.addEventListener('input', () => {
+    rangeOutput.textContent = rangeSlider.value;
+});

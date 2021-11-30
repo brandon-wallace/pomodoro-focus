@@ -37,7 +37,7 @@
         </div>
 
         <div class="timer__digits">
-          <span class="minutes">25</span>
+          <span class="minutes">2</span>
           <span>:</span>
           <span class="seconds">00</span>
         </div>
@@ -71,12 +71,26 @@
 
               <p>Set time in minutes.</p>
 
-              <p>Work :</p>
-              <div class="session__buttons"><button aria-label="Add time" class="add"></button><span class="number time">25</span><button aria-label="Subtract time" class="subtract"></button></div>
-              <p>Short Break :</p>
-              <div class="session__buttons"><button aria-label="Add time" class="add"></button><span class="number break-short">5</span><button aria-label="Subtract time" class="subtract"></button></div>
-              <p>Long Break :</p>
-              <div class="session__buttons"><button aria-label="Add time" class="add"></button><span class="number break-long">15</span><button aria-label="Subtract time" class="subtract"></button></div>
+              <label>Work :</label>
+              <div class="session__buttons">
+                <button aria-label="Add time" class="add"></button><span class="number time">2</span><button aria-label="Subtract time" class="subtract"></button>
+              </div>
+
+              <label>Short Break :</label> 
+              <div class="session__buttons">
+                <button aria-label="Add time" class="add"></button><span class="number break-short">1</span><button aria-label="Subtract time" class="subtract"></button>
+              </div>
+
+              <label for="break-long">Long Break :</label>
+              <div class="session__buttons">
+                <button aria-label="Add time" class="add"></button><span class="number break-long">15</span><button aria-label="Subtract time" class="subtract"></button>
+              </div>
+
+              <label for="session--range">Sessions :</label>
+              <div class="session__buttons">
+                <input type="range" class="number session-number" min="1" max="5" step="1" value="1">
+                <span class="range__output">1</span>
+              </div>
 
             </div>
 
